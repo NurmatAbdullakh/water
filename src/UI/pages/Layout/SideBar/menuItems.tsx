@@ -3,7 +3,7 @@ import { Paths } from "../../../../router/paths";
 
 const mainMenuItems = [
     {
-        key: Paths.DASHBOARD,
+        key: Paths.HOME,
         label: "Dashboard",
         icon: <BarChartSquareIcon />
 

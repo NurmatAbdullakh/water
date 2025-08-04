@@ -6,14 +6,12 @@ import { Space } from "antd";
 import PurchasesChart from "../UI/components/PurchasesChart";
 import SiteTrafficChart from "../UI/components/SiteTrafficChart";
 
-const Home = () => (
+const Dashboard = () => <div>
     <Space direction="vertical" size="large" style={{ width: '100%' }}>
         <DashboardOverview />
         <PurchasesChart />
         <SiteTrafficChart />
-    </Space>
-);
-const Dashboard = () => <div>Dashboard Page</div>;
+    </Space></div>;
 const Users = () => <div>Users Page</div>;
 const Profile = () => <div>Profile Page</div>;
 const AdminRoles = () => <div>Admin Roles Page</div>;
@@ -43,10 +41,6 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: Paths.HOME,
-                element: <Home />,
-            },
-            {
-                path: Paths.DASHBOARD,
                 element: <Dashboard />,
             },
             {

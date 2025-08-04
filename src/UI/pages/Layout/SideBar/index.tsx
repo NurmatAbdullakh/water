@@ -14,6 +14,7 @@ const useStyle = createUseStyles(() => ({
         borderRadius: "20px",
         height: "100%",
         width: "100%",
+        maxHeight: "932px",
         padding: "20px"
     },
     logo: {
