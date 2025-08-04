@@ -9,7 +9,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     const isMobile = useIsMobile();
 
     return (
-        <AntLayout style={{ position: "sticky", height: "100vh", overflow: "auto" }}>
+        <AntLayout style={{ position: "sticky", height: "100vh", overflow: "hidden" }}>
             <AntLayout style={{ padding: 0, background: "#fff" }}>
                 <Sidebar />
                 {!isMobile && (

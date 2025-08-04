@@ -15,7 +15,8 @@ const useStyle = createUseStyles(() => ({
         height: "100%",
         width: "100%",
         maxHeight: "932px",
-        padding: "20px"
+        padding: "20px",
+        overflow: "auto"
     },
     logo: {
         marginBottom: "20px",
