@@ -54,7 +54,9 @@ const useStyles = createUseStyles({
         cursor: "pointer"
     },
     avatar: {
-        cursor: "pointer"
+        cursor: "pointer",
+        width: "40px",
+        height: "40px"
     },
     searchInput: {
         width: "320px"

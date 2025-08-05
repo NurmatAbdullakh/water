@@ -1,6 +1,7 @@
 export const Color = {
     border: {
-        secondary: "#E9EAEB"
+        secondary: "#E9EAEB",
+        primary: "#D5D7DA"
     },
     text: {
         secondary: {
