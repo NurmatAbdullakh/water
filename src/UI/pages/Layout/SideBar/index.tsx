@@ -54,7 +54,7 @@ export const Sidebar = () => {
             </Drawer>
         </>
     ) : (
-        <Sider width={300} theme="light" style={{ padding: "4px" }}>
+        <Sider width={300} theme="light" style={{ position: "relative", top: "4px", left: "4px", zIndex: 2 }}>
             <div className={classes.contentBlock}>
                 <div className={classes.logo}>
                     <Link to={Paths.HOME}>

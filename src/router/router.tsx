@@ -29,15 +29,9 @@ const Notifications = () => <div>Notifications Page</div>;
 const Settings = () => <div>Settings Page</div>;
 const NotFound = () => <div>404 - Page Not Found</div>;
 
-const AppLayout = () => (
-    <Layout>
-        <Outlet />
-    </Layout>
-);
-
 export const router = createBrowserRouter([
     {
-        element: <AppLayout />,
+        element: <Layout />,
         children: [
             {
                 path: Paths.HOME,
