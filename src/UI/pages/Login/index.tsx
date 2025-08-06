@@ -1,8 +1,9 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input, Row, Typography } from "antd";
+import { Button, Checkbox, Form, Row, Typography } from "antd";
 import { Link } from "react-router-dom";
 import { Paths } from "../../../router/paths";
 import styles from './index.module.css';
+import { Input } from "../../components/CustomAntdComponents/Input";
 
 function Login() {
     return (
@@ -34,7 +35,7 @@ function Login() {
                         <Row justify="space-between" align="middle">
                             <Checkbox>Remember me</Checkbox>
                             <Link to={Paths.FORGOT_PASSWORD}>
-                                <Typography.Link>Forgot password?</Typography.Link>
+                                <Typography.Text>Forgot password?</Typography.Text>
                             </Link>
                         </Row>
                     </Form.Item>
@@ -48,7 +49,7 @@ function Login() {
                 <div className={styles.authFooter}>
                     <Typography.Text>Don't have an account? </Typography.Text>
                     <Link to={Paths.SIGN_UP}>
-                        <Typography.Link>Sign up</Typography.Link>
+                        <Typography.Text>Sign up</Typography.Text>
                     </Link>
                 </div>
             </div>

@@ -65,7 +65,7 @@ export const SignUp = () => {
                 <div className={styles.authFooter}>
                     <Typography.Text>Already have an account? </Typography.Text>
                     <Link to={Paths.LOGIN}>
-                        <Typography.Link>Log in</Typography.Link>
+                        <Typography.Text>Log in</Typography.Text>
                     </Link>
                 </div>
             </div>

@@ -1,3 +1,5 @@
+// CustomAntdComponents/Input.tsx
+
 import React from 'react';
 import { Input as AntInput, type InputProps } from 'antd';
 import { createUseStyles } from 'react-jss';
@@ -14,12 +16,16 @@ const useStyles = createUseStyles({
     },
 });
 
-export const Input: React.FC<InputProps> = ({ className, ...props }) => {
+// Кастомный компонент
+const CustomInput: React.FC<InputProps> = ({ className, ...props }) => {
     const classes = useStyles();
-
     return (
         <AntInput className={classNames(className, classes.customInput)} {...props} />
     );
 };
 
-export const { Password, TextArea, Search } = AntInput;
+(CustomInput as any).Password = AntInput.Password;
+(CustomInput as any).TextArea = AntInput.TextArea;
+(CustomInput as any).Search = AntInput.Search;
+
+export const Input = CustomInput as typeof AntInput;
