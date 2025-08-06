@@ -1,0 +1,30 @@
+.auth-layout {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.auth-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+
+.auth-right {
+    height: 100vh;
+}
+
+.auth-image {
+    height: 100%;
+    width: 100%;
+    background-color: #53389E; /* Using the purple color from the logo */
+    background-image: url('/public/Auth.jpg');
+    background-size: cover;
+    background-position: center;
+}
+@media (max-width: 768px) {
+    .auth-form-container {
+        max-width: 100%;
+    }
+}

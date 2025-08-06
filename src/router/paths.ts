@@ -15,5 +15,11 @@ export const Paths = {
   SUPPORT_TICKETS: "/support-tickets",
   NOTIFICATIONS: "/notifications",
   SETTINGS: "/settings",
-  NOT_FOUND: "*"
-}
+  NOT_FOUND: "*",
+  LOGIN: "/login",
+  SIGN_UP: "/sign-up",
+  FORGOT_PASSWORD: "/forgot-password",
+  CHECK_YOUREMAIL: "/check-your-email",
+  SET_NEW_PASSWORD: "/set-new-password",
+  PASSWORD_RESET: "/password-reset",
+};

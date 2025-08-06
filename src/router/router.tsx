@@ -1,10 +1,17 @@
-import { createBrowserRouter, Outlet } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { Paths } from "./paths";
-import { Layout } from "../UI/pages/Layout";
+import { Layout } from "../UI/layouts/Layout";
 import DashboardOverview from "../UI/components/DashboardOverview";
 import { Space } from "antd";
 import PurchasesChart from "../UI/components/PurchasesChart";
 import SiteTrafficChart from "../UI/components/SiteTrafficChart";
+import { ProtectedRoute } from "./ProtectedRoute";
+import { PublicRoute } from "./PublicRoute";
+import { AuthLayout } from "../UI/layouts/AuthLayout";
+import { lazy, Suspense } from "react";
+
+const Login = lazy(() => import("../UI/pages/Login"));
+const SignUp = lazy(() => import("../UI/pages/SignUp"));
 
 const Dashboard = () => <div>
     <Space direction="vertical" size="large" style={{ width: '100%' }}>
@@ -31,73 +38,120 @@ const NotFound = () => <div>404 - Page Not Found</div>;
 
 export const router = createBrowserRouter([
     {
-        element: <Layout />,
+        element: <PublicRoute />,
         children: [
             {
-                path: Paths.HOME,
-                element: <Dashboard />,
+                element:
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <AuthLayout />
+                    </Suspense>,
+                children: [
+                    {
+                        path: Paths.LOGIN,
+                        element:
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <Login />
+                            </Suspense>,
+                    },
+                    {
+                        path: Paths.SIGN_UP,
+                        element:
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <SignUp />
+                            </Suspense>,
+                    },
+                ],
             },
             {
-                path: Paths.USERS,
-                element: <Users />,
+                path: Paths.FORGOT_PASSWORD,
+                element: <>FORGOT_PASSWORD</>,
             },
             {
-                path: Paths.PROFILE,
-                element: <Profile />,
+                path: Paths.CHECK_YOUREMAIL,
+                element: <>CHECK_YOUREMAIL</>,
             },
             {
-                path: Paths.ADMIN_ROLES,
-                element: <AdminRoles />,
+                path: Paths.SET_NEW_PASSWORD,
+                element: <>SET_NEW_PASSWORD</>,
             },
             {
-                path: Paths.SUBSCRIPTIONS,
-                element: <Subscriptions />,
-            },
-            {
-                path: Paths.WEBSITE_ANALYTICS,
-                element: <WebsiteAnalytics />,
-            },
-            {
-                path: Paths.STOCK_ANALYSES,
-                element: <StockAnalyses />,
-            },
-            {
-                path: Paths.STOCK_REPORT,
-                element: <StockReport />,
-            },
-            {
-                path: Paths.TOP_HALAL_STOCKS,
-                element: <TopHalalStocks />,
-            },
-            {
-                path: Paths.PORTFOLIOS,
-                element: <Portfolios />,
-            },
-            {
-                path: Paths.FINANCE,
-                element: <Finance />,
-            },
-            {
-                path: Paths.ARTICLES,
-                element: <Articles />,
-            },
-            {
-                path: Paths.WEBINARS,
-                element: <Webinars />,
-            },
-            {
-                path: Paths.SUPPORT_TICKETS,
-                element: <SupportTickets />,
-            },
-            {
-                path: Paths.NOTIFICATIONS,
-                element: <Notifications />,
-            },
-            {
-                path: Paths.SETTINGS,
-                element: <Settings />,
+                path: Paths.PASSWORD_RESET,
+                element: <>PASSWORD_RESET</>,
             },
         ],
+    },
+    {
+        element: <ProtectedRoute />, // оборачиваем защищённые маршруты
+        children: [
+            {
+                element: <Layout />,
+                children: [
+                    {
+                        path: Paths.HOME,
+                        element: <Dashboard />,
+                    },
+                    {
+                        path: Paths.USERS,
+                        element: <Users />,
+                    },
+                    {
+                        path: Paths.PROFILE,
+                        element: <Profile />,
+                    },
+                    {
+                        path: Paths.ADMIN_ROLES,
+                        element: <AdminRoles />,
+                    },
+                    {
+                        path: Paths.SUBSCRIPTIONS,
+                        element: <Subscriptions />,
+                    },
+                    {
+                        path: Paths.WEBSITE_ANALYTICS,
+                        element: <WebsiteAnalytics />,
+                    },
+                    {
+                        path: Paths.STOCK_ANALYSES,
+                        element: <StockAnalyses />,
+                    },
+                    {
+                        path: Paths.STOCK_REPORT,
+                        element: <StockReport />,
+                    },
+                    {
+                        path: Paths.TOP_HALAL_STOCKS,
+                        element: <TopHalalStocks />,
+                    },
+                    {
+                        path: Paths.PORTFOLIOS,
+                        element: <Portfolios />,
+                    },
+                    {
+                        path: Paths.FINANCE,
+                        element: <Finance />,
+                    },
+                    {
+                        path: Paths.ARTICLES,
+                        element: <Articles />,
+                    },
+                    {
+                        path: Paths.WEBINARS,
+                        element: <Webinars />,
+                    },
+                    {
+                        path: Paths.SUPPORT_TICKETS,
+                        element: <SupportTickets />,
+                    },
+                    {
+                        path: Paths.NOTIFICATIONS,
+                        element: <Notifications />,
+                    },
+                    {
+                        path: Paths.SETTINGS,
+                        element: <Settings />,
+                    },
+                ],
+            }],
     },
     {
         path: Paths.NOT_FOUND,
