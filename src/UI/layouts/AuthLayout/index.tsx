@@ -1,8 +1,7 @@
 import { Col, Row } from "antd";
-import { Outlet, useLocation } from "react-router-dom";
 import { createUseStyles } from "react-jss";
-import { useEffect, useState } from "react";
-import "./index.css"
+import { Outlet, useLocation } from "react-router-dom";
+import "./index.css";
 
 const useStyles = createUseStyles({
     '@keyframes slideInFade': {
@@ -38,16 +37,11 @@ const useStyles = createUseStyles({
 export const AuthLayout = () => {
     const classes = useStyles();
     const location = useLocation();
-    const [key, setKey] = useState(0);
-
-    useEffect(() => {
-        setKey(prev => prev + 1);
-    }, [location]);
 
     return (
         <Row className="auth-layout">
             <Col xs={24} md={12} className="auth-left">
-                <div key={key} className={classes.outletContainer}>
+                <div key={location.pathname} className={classes.outletContainer}>
                     <Outlet />
                 </div>
             </Col>
