@@ -11,7 +11,7 @@ function Login() {
                 <div className={styles.authHeader}>
                     <img src="/Logo.svg" alt="Logo" className={styles.authLogo} />
                     <Typography.Title level={3}>Welcome Back</Typography.Title>
-                    <Typography.Text type="secondary">Sign in to your account to continue</Typography.Text>
+                    <Typography.Text type="secondary">Welcome back! Please enter your details.</Typography.Text>
                 </div>
                 <Form className={styles.authForm} layout="vertical">
                     <Form.Item
