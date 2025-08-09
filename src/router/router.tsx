@@ -8,10 +8,15 @@ import SiteTrafficChart from "../UI/components/SiteTrafficChart";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { PublicRoute } from "./PublicRoute";
 import { AuthLayout } from "../UI/layouts/AuthLayout";
+import { CenteredLayout } from "../UI/layouts/CenteredLayout";
 import { lazy, Suspense } from "react";
 
 const Login = lazy(() => import("../UI/pages/Login"));
 const SignUp = lazy(() => import("../UI/pages/SignUp"));
+const ForgotPassword = lazy(() => import("../UI/pages/ForgotPassword"));
+const CheckYourEmail = lazy(() => import("../UI/pages/CheckYourEmail"));
+const SetNewPassword = lazy(() => import("../UI/pages/SetNewPassword"));
+const PasswordReset = lazy(() => import("../UI/pages/PasswordReset"));
 
 const Dashboard = () => <div>
     <Space direction="vertical" size="large" style={{ width: '100%' }}>
@@ -63,20 +68,40 @@ export const router = createBrowserRouter([
                 ],
             },
             {
-                path: Paths.FORGOT_PASSWORD,
-                element: <>FORGOT_PASSWORD</>,
-            },
-            {
-                path: Paths.CHECK_YOUREMAIL,
-                element: <>CHECK_YOUREMAIL</>,
-            },
-            {
-                path: Paths.SET_NEW_PASSWORD,
-                element: <>SET_NEW_PASSWORD</>,
-            },
-            {
-                path: Paths.PASSWORD_RESET,
-                element: <>PASSWORD_RESET</>,
+                element: 
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <CenteredLayout />
+                    </Suspense>,
+                children: [
+                    {
+                        path: Paths.FORGOT_PASSWORD,
+                        element: 
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <ForgotPassword />
+                            </Suspense>,
+                    },
+                    {
+                        path: Paths.CHECK_YOUREMAIL,
+                        element: 
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <CheckYourEmail />
+                            </Suspense>,
+                    },
+                    {
+                        path: Paths.SET_NEW_PASSWORD,
+                        element: 
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <SetNewPassword />
+                            </Suspense>,
+                    },
+                    {
+                        path: Paths.PASSWORD_RESET,
+                        element: 
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <PasswordReset />
+                            </Suspense>,
+                    },
+                ],
             },
         ],
     },
