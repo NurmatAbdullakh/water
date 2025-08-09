@@ -1,8 +1,11 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import { Button, Typography } from "antd";
+import { Typography } from "antd";
 import { Link } from "react-router-dom";
 import { Paths } from "../../../router/paths";
 import { createUseStyles } from "react-jss";
+import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
+import { Button } from "../../components/CustomAntdComponents/Button";
+import { ArrowLeftIcon } from "../../../assets/icons";
 
 const useStyles = createUseStyles({
     container: {
@@ -29,7 +32,8 @@ const useStyles = createUseStyles({
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
-        marginTop: '16px'
+        marginTop: '16px',
+        justifyContent: "center"
     }
 });
 
@@ -38,11 +42,11 @@ export const PasswordReset = () => {
 
     return (
         <div className={classes.container}>
-            <div className={classes.header}>
-                <img src="/Logo.svg" alt="Logo" className={classes.logo} />
-                <Typography.Title level={4} style={{ margin: 0 }}>Password reset</Typography.Title>
-                <Typography.Text type="secondary">Your password has been successfully reset. Click below to log in magically.</Typography.Text>
-            </div>
+            <AuthHeader
+                logo="/check.svg"
+                title="Password reset"
+                subtitle="Your password has been successfully reset. Click below to log in magically."
+            />
 
             <div className={classes.actions}>
                 <Link to={Paths.LOGIN}>
@@ -53,7 +57,7 @@ export const PasswordReset = () => {
             </div>
 
             <Link to={Paths.LOGIN} className={classes.backLink}>
-                <ArrowLeftOutlined />
+                <ArrowLeftIcon />
                 <Typography.Text>Back to log in</Typography.Text>
             </Link>
         </div>

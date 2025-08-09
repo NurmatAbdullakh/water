@@ -1,10 +1,13 @@
 import { Outlet } from "react-router-dom";
-import "./index.css";
+import styles from "./index.module.css"
 
 export const CenteredLayout = () => {
     return (
-        <div className="centered-layout">
-            <div className="centered-container">
+        <div className={styles.centeredLayout}>
+            <div className={styles.authLayoutBg}>
+                <img src="/Background_pattern_decorative.png" />
+            </div>
+            <div className={styles.centeredContainer}>
                 <Outlet />
             </div>
         </div>

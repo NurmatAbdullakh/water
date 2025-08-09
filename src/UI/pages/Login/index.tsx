@@ -6,6 +6,7 @@ import styles from './index.module.css';
 import { Button } from "../../components/CustomAntdComponents/Button";
 import { Color } from "../../../assets/colors";
 import { createUseStyles } from "react-jss";
+import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
 
 const useStyles = createUseStyles({
     secondaryText: {
@@ -18,11 +19,7 @@ function Login() {
     return (
         <div>
             <div className={styles.authFormContainer}>
-                <div className={styles.authHeader}>
-                    <img src="/Logomark.png" alt="Logo" className={styles.authLogo} />
-                    <Typography.Title className={styles.title} level={2}>Welcome Back</Typography.Title>
-                    <Typography.Text className={styles.subtitle} type="secondary">Welcome back! Please enter your details.</Typography.Text>
-                </div>
+                <AuthHeader title="Welcome Back" subtitle="Welcome back! Please enter your details." logo="/Logomark.png" />
                 <Form className={styles.authForm} layout="vertical">
                     <Form.Item
                         required={false}

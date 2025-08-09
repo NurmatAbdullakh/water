@@ -1,8 +1,10 @@
-import { ArrowLeftOutlined } from "@ant-design/icons";
-import { Button, Typography } from "antd";
-import { Link } from "react-router-dom";
-import { Paths } from "../../../router/paths";
+import { Typography } from "antd";
 import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
+import { ArrowLeftIcon } from "../../../assets/icons";
+import { Paths } from "../../../router/paths";
+import { Button } from "../../components/CustomAntdComponents/Button";
+import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
 
 const useStyles = createUseStyles({
     container: {
@@ -27,13 +29,14 @@ const useStyles = createUseStyles({
     },
     resendLink: {
         textAlign: 'center',
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     backLink: {
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
-        marginTop: '16px'
+        marginTop: '16px',
+        justifyContent: "center"
     }
 });
 
@@ -47,28 +50,28 @@ export const CheckYourEmail = () => {
 
     return (
         <div className={classes.container}>
-            <div className={classes.header}>
-                <img src="/Logo.svg" alt="Logo" className={classes.logo} />
-                <Typography.Title level={4} style={{ margin: 0 }}>Check your email</Typography.Title>
-                <Typography.Text type="secondary">We sent a password reset link to olivia@untitledui.com</Typography.Text>
-            </div>
+            <AuthHeader
+                logo="/check.svg"
+                title="Check your email"
+                subtitle="We sent a password reset link to"
+                email=" olivia@untitledui.com"
+            />
 
             <div className={classes.actions}>
                 <Button type="primary" size="large" block>
                     Open email app
                 </Button>
-                <Typography.Text 
-                    className={classes.resendLink} 
+                <Typography.Text
+                    className={classes.resendLink}
                     onClick={handleResend}
-                    underline
                 >
-                    Didn't receive the email? Click to resend
+                    Didn't receive the email? <span className="linkText">Click to resend</span>
                 </Typography.Text>
             </div>
 
             <Link to={Paths.LOGIN} className={classes.backLink}>
-                <ArrowLeftOutlined />
-                <Typography.Text>Back to log in</Typography.Text>
+                <ArrowLeftIcon />
+                <Typography.Text >Back to log in</Typography.Text>
             </Link>
         </div>
     );

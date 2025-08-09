@@ -4,15 +4,13 @@ import { Paths } from "../../../router/paths";
 import { Button } from "../../components/CustomAntdComponents/Button";
 import { Input } from "../../components/CustomAntdComponents/Input";
 import styles from './index.module.css';
+import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
 
 export const SignUp = () => {
     return (
         <div>
             <div className={styles.authFormContainer}>
-                <div className={styles.authHeader}>
-                    <img src="/Logomark.png" alt="Logo" className={styles.authLogo} />
-                    <Typography.Title className={styles.authTitle} level={2}>Sign up</Typography.Title>
-                </div>
+                <AuthHeader title="Sign up" logo="/Logomark.png" isSignUp={true} />
                 <Form className={styles.authForm} layout="vertical">
                     <Form.Item
                         required={false}

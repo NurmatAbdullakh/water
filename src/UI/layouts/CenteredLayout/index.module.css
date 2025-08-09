@@ -1,0 +1,20 @@
+.centeredLayout {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+}
+
+.centeredContainer {
+    padding-top: 90px;
+    max-width: 360px;
+    width: 100%;
+    position: relative;
+}
+
+.authLayoutBg{
+    position: absolute;
+    top: 0;
+    height: 500px;
+}

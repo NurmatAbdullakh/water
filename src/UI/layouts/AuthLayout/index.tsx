@@ -58,7 +58,7 @@ export const AuthLayout = () => {
         <Row className="auth-layout">
             <Col xs={24} lg={12} className="auth-left">
                 <div className={classes.authLayoutBg}>
-                    <img src="/Background pattern decorative.png" />
+                    <img src="/Background_pattern_decorative.png" />
                 </div>
                 <div key={location.pathname} className={classes.outletContainer}>
                     <Outlet />

@@ -3,23 +3,6 @@
     width: 100%;
 }
 
-.authHeader {
-    margin-bottom: 2rem;
-}
-
-.authLogo {
-    margin-bottom: 24px;
-    height: 48px;
-    width: 48px;
-    @media (min-width: 992px) {
-        display: none;   
-    }
-}
-
-.authTitle{
-    font-size: 30px;
-}
-
 .authForm {
     margin-bottom: 2rem;
 }

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Paths } from "../../../router/paths";
 import { Input } from "../../components/CustomAntdComponents/Input";
 import { createUseStyles } from "react-jss";
+import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
 
 const useStyles = createUseStyles({
     container: {
@@ -47,11 +48,11 @@ export const SetNewPassword = () => {
 
     return (
         <div className={classes.container}>
-            <div className={classes.header}>
-                <img src="/Logo.svg" alt="Logo" className={classes.logo} />
-                <Typography.Title level={4} style={{ margin: 0 }}>Set new password</Typography.Title>
-                <Typography.Text type="secondary">Your new password must be different to previously used passwords.</Typography.Text>
-            </div>
+            <AuthHeader
+                logo="/lock.svg"
+                title="Set new password"
+                subtitle="Your new password must be different to previously used passwords."
+            />
 
             <Form className={classes.form} layout="vertical">
                 <Form.Item

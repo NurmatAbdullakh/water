@@ -1,15 +1,17 @@
-import { ArrowLeftOutlined, MailOutlined } from "@ant-design/icons";
-import { Button, Form, Typography } from "antd";
-import { Link } from "react-router-dom";
+import { ArrowLeftOutlined } from "@ant-design/icons";
+import { Form, Typography } from "antd";
 import { Paths } from "../../../router/paths";
 import { Input } from "../../components/CustomAntdComponents/Input";
 import { createUseStyles } from "react-jss";
+import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
+import { Link } from "react-router-dom";
+import { Button } from "../../components/CustomAntdComponents/Button";
+import { Color } from "../../../assets/colors";
+import { ArrowLeftIcon } from "../../../assets/icons";
 
 const useStyles = createUseStyles({
     container: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '24px'
+
     },
     header: {
         display: 'flex',
@@ -30,7 +32,11 @@ const useStyles = createUseStyles({
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
-        marginTop: '16px'
+        marginTop: '16px',
+        justifyContent: "center",
+        "&:hover": {
+            textDecoration: "underline"
+        }
     }
 });
 
@@ -39,19 +45,19 @@ export const ForgotPassword = () => {
 
     return (
         <div className={classes.container}>
-            <div className={classes.header}>
-                <img src="/Logo.svg" alt="Logo" className={classes.logo} />
-                <Typography.Title level={4} style={{ margin: 0 }}>Forgot password?</Typography.Title>
-                <Typography.Text type="secondary">No worries, we'll send you reset instructions.</Typography.Text>
-            </div>
-
+            <AuthHeader
+                logo="/key.svg"
+                title="Forgot password?"
+                subtitle="No worries, we'll send you reset instructions."
+            />
             <Form className={classes.form} layout="vertical">
                 <Form.Item
+                    required={false}
                     label="Email"
                     name="email"
                     rules={[{ required: true, message: 'Please input your email!' }, { type: 'email', message: 'Please enter a valid email!' }]}
                 >
-                    <Input prefix={<MailOutlined />} placeholder="Enter your email" size="large" />
+                    <Input placeholder="Enter your email" size="large" />
                 </Form.Item>
 
                 <Form.Item>
@@ -62,7 +68,7 @@ export const ForgotPassword = () => {
             </Form>
 
             <Link to={Paths.LOGIN} className={classes.backLink}>
-                <ArrowLeftOutlined />
+                <ArrowLeftIcon />
                 <Typography.Text>Back to log in</Typography.Text>
             </Link>
         </div>
