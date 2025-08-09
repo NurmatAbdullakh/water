@@ -4,6 +4,7 @@
   border: 0;
   scrollbar-width: 0;
   scroll-behavior: smooth;
+  font-family: Inter !important;
 }
 
 *,
@@ -42,6 +43,7 @@ body {
   -moz-text-size-adjusst: 100%;
   -webkit-text-size-adjust: 100%;
   font-family: var(--font-product);
+  font-family: Inter;
 }
 
 input,
@@ -88,4 +90,24 @@ h5,
 h6 {
   font-size: inherit;
   font-weight: 400;
+}
+/* text styles */
+.linkText{
+  color: #6941C6;
+
+}
+.linkText:hover{
+  color: #4F299E;
+  text-decoration: underline;
+}
+
+/* ant form styles */
+.ant-form-item{
+  margin-bottom: 20px;
+}
+.ant-form-item-extra{
+  font-size: 14px;
+  font-weight: 400;
+  color: #535862;
+  margin-top: 6px;
 }

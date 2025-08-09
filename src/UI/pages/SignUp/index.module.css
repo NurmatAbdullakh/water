@@ -5,12 +5,19 @@
 
 .authHeader {
     margin-bottom: 2rem;
-    text-align: center;
 }
 
 .authLogo {
-    margin-bottom: 1.5rem;
-    height: 32px;
+    margin-bottom: 24px;
+    height: 48px;
+    width: 48px;
+    @media (min-width: 992px) {
+        display: none;   
+    }
+}
+
+.authTitle{
+    font-size: 30px;
 }
 
 .authForm {

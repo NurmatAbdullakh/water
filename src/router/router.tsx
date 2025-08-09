@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { Paths } from "./paths";
 import { Layout } from "../UI/layouts/Layout";
 import DashboardOverview from "../UI/components/DashboardOverview";
-import { Space } from "antd";
+import { Space, Spin } from "antd";
 import PurchasesChart from "../UI/components/PurchasesChart";
 import SiteTrafficChart from "../UI/components/SiteTrafficChart";
 import { ProtectedRoute } from "./ProtectedRoute";
@@ -11,6 +11,14 @@ import { AuthLayout } from "../UI/layouts/AuthLayout";
 import { CenteredLayout } from "../UI/layouts/CenteredLayout";
 import { lazy, Suspense } from "react";
 
+// Create a reusable loading component
+const LoadingSpinner = () => (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: "300px", }}>
+        <Spin size="large" tip="Loading..." />
+    </div>
+);
+
+// Lazy load auth-related pages
 const Login = lazy(() => import("../UI/pages/Login"));
 const SignUp = lazy(() => import("../UI/pages/SignUp"));
 const ForgotPassword = lazy(() => import("../UI/pages/ForgotPassword"));
@@ -18,95 +26,109 @@ const CheckYourEmail = lazy(() => import("../UI/pages/CheckYourEmail"));
 const SetNewPassword = lazy(() => import("../UI/pages/SetNewPassword"));
 const PasswordReset = lazy(() => import("../UI/pages/PasswordReset"));
 
-const Dashboard = () => <div>
-    <Space direction="vertical" size="large" style={{ width: '100%' }}>
-        <DashboardOverview />
-        <PurchasesChart />
-        <SiteTrafficChart />
-    </Space></div>;
-const Users = () => <div>Users Page</div>;
-const Profile = () => <div>Profile Page</div>;
-const AdminRoles = () => <div>Admin Roles Page</div>;
-const Subscriptions = () => <div>Subscriptions Page</div>;
-const WebsiteAnalytics = () => <div>Website Analytics Page</div>;
-const StockAnalyses = () => <div>Stock Analyses Page</div>;
-const StockReport = () => <div>Stock Report Page</div>;
-const TopHalalStocks = () => <div>Top Halal Stocks Page</div>;
-const Portfolios = () => <div>Portfolios Page</div>;
-const Finance = () => <div>Finance Page</div>;
-const Articles = () => <div>Articles Page</div>;
-const Webinars = () => <div>Webinars Page</div>;
-const SupportTickets = () => <div>Support Tickets Page</div>;
-const Notifications = () => <div>Notifications Page</div>;
-const Settings = () => <div>Settings Page</div>;
-const NotFound = () => <div>404 - Page Not Found</div>;
+// Dashboard and other components
+const Dashboard = () => (
+    <div>
+        <Space direction="vertical" size="large" style={{ width: '100%' }}>
+            <DashboardOverview />
+            <PurchasesChart />
+            <SiteTrafficChart />
+        </Space>
+    </div>
+);
+
+// Lazy load main content pages
+const Users = () => <>it is empty</>
+const Profile = () => <>it is empty</>
+const AdminRoles = () => <>it is empty</>
+const Subscriptions = () => <>it is empty</>
+const WebsiteAnalytics = () => <>it is empty</>
+const StockAnalyses = () => <>it is empty</>
+const StockReport = () => <>it is empty</>
+const TopHalalStocks = () => <>it is empty</>
+const Portfolios = () => <>it is empty</>
+const Finance = () => <>it is empty</>
+const Articles = () => <>it is empty</>
+const Webinars = () => <>it is empty</>
+const SupportTickets = () => <>it is empty</>
+const Notifications = () => <>it is empty</>
+const Settings = () => <>it is empty</>
+const NotFound = () => <>it is empty</>
 
 export const router = createBrowserRouter([
     {
         element: <PublicRoute />,
         children: [
             {
-                element:
-                    <Suspense fallback={<div>Loading...</div>}>
+                element: (
+                    <Suspense fallback={<LoadingSpinner />}>
                         <AuthLayout />
-                    </Suspense>,
+                    </Suspense>
+                ),
                 children: [
                     {
                         path: Paths.LOGIN,
-                        element:
-                            <Suspense fallback={<div>Loading...</div>}>
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
                                 <Login />
-                            </Suspense>,
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.SIGN_UP,
-                        element:
-                            <Suspense fallback={<div>Loading...</div>}>
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
                                 <SignUp />
-                            </Suspense>,
+                            </Suspense>
+                        ),
                     },
                 ],
             },
             {
-                element: 
-                    <Suspense fallback={<div>Loading...</div>}>
+                element: (
+                    <Suspense fallback={<LoadingSpinner />}>
                         <CenteredLayout />
-                    </Suspense>,
+                    </Suspense>
+                ),
                 children: [
                     {
                         path: Paths.FORGOT_PASSWORD,
-                        element: 
-                            <Suspense fallback={<div>Loading...</div>}>
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
                                 <ForgotPassword />
-                            </Suspense>,
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.CHECK_YOUREMAIL,
-                        element: 
-                            <Suspense fallback={<div>Loading...</div>}>
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
                                 <CheckYourEmail />
-                            </Suspense>,
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.SET_NEW_PASSWORD,
-                        element: 
-                            <Suspense fallback={<div>Loading...</div>}>
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
                                 <SetNewPassword />
-                            </Suspense>,
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.PASSWORD_RESET,
-                        element: 
-                            <Suspense fallback={<div>Loading...</div>}>
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
                                 <PasswordReset />
-                            </Suspense>,
+                            </Suspense>
+                        ),
                     },
                 ],
             },
         ],
     },
     {
-        element: <ProtectedRoute />, // оборачиваем защищённые маршруты
+        element: <ProtectedRoute />,
         children: [
             {
                 element: <Layout />,
@@ -117,69 +139,133 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: Paths.USERS,
-                        element: <Users />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <Users />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.PROFILE,
-                        element: <Profile />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <Profile />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.ADMIN_ROLES,
-                        element: <AdminRoles />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <AdminRoles />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.SUBSCRIPTIONS,
-                        element: <Subscriptions />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <Subscriptions />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.WEBSITE_ANALYTICS,
-                        element: <WebsiteAnalytics />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <WebsiteAnalytics />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.STOCK_ANALYSES,
-                        element: <StockAnalyses />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <StockAnalyses />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.STOCK_REPORT,
-                        element: <StockReport />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <StockReport />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.TOP_HALAL_STOCKS,
-                        element: <TopHalalStocks />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <TopHalalStocks />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.PORTFOLIOS,
-                        element: <Portfolios />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <Portfolios />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.FINANCE,
-                        element: <Finance />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <Finance />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.ARTICLES,
-                        element: <Articles />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <Articles />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.WEBINARS,
-                        element: <Webinars />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <Webinars />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.SUPPORT_TICKETS,
-                        element: <SupportTickets />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <SupportTickets />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.NOTIFICATIONS,
-                        element: <Notifications />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <Notifications />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: Paths.SETTINGS,
-                        element: <Settings />,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <Settings />
+                            </Suspense>
+                        ),
                     },
                 ],
             }],
     },
     {
         path: Paths.NOT_FOUND,
-        element: <NotFound />,
+        element: (
+            <Suspense fallback={<LoadingSpinner />}>
+                <NotFound />
+            </Suspense>
+        ),
     },
 ]);

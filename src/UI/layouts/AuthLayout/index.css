@@ -4,12 +4,9 @@
 }
 
 .auth-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     padding: 2rem;
 }
-
 
 .auth-right {
     height: 100vh;
@@ -23,7 +20,7 @@
     background-size: cover;
     background-position: center;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .auth-form-container {
         max-width: 100%;
     }

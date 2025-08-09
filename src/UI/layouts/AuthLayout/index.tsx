@@ -30,7 +30,23 @@ const useStyles = createUseStyles({
     },
     outletContainer: {
         animation: '$slideInFade 0.6s cubic-bezier(0.16, 1, 0.3, 1), $scaleInFade 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
-        willChange: 'transform, opacity'
+        willChange: 'transform, opacity',
+        maxWidth: "360px",
+        margin: "95px auto 0"
+    },
+    authLayoutBg: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "70%",
+
+        "& img": {
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+        }
     }
 });
 
@@ -40,12 +56,15 @@ export const AuthLayout = () => {
 
     return (
         <Row className="auth-layout">
-            <Col xs={24} md={12} className="auth-left">
+            <Col xs={24} lg={12} className="auth-left">
+                <div className={classes.authLayoutBg}>
+                    <img src="/Background pattern decorative.png" />
+                </div>
                 <div key={location.pathname} className={classes.outletContainer}>
                     <Outlet />
                 </div>
             </Col>
-            <Col xs={0} md={12} className="auth-right">
+            <Col xs={0} lg={12} className="auth-right">
                 <div className="auth-image"></div>
             </Col>
         </Row>
