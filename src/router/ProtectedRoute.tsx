@@ -5,7 +5,7 @@ const isAuthenticated = () => {
 };
 
 export const ProtectedRoute = () => {
-    if (!isAuthenticated()) {
+    if (isAuthenticated()) {
         return <Outlet />
     }
     else {
