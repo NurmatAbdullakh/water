@@ -1,4 +1,3 @@
-import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Typography } from "antd";
 import { Link } from "react-router-dom";
 import { Paths } from "../../../router/paths";

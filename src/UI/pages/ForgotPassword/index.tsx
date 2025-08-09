@@ -1,4 +1,3 @@
-import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Form, Typography } from "antd";
 import { Paths } from "../../../router/paths";
 import { Input } from "../../components/CustomAntdComponents/Input";
@@ -6,7 +5,6 @@ import { createUseStyles } from "react-jss";
 import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/CustomAntdComponents/Button";
-import { Color } from "../../../assets/colors";
 import { ArrowLeftIcon } from "../../../assets/icons";
 
 const useStyles = createUseStyles({
