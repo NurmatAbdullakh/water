@@ -1,16 +1,18 @@
-import { ArrowLeftOutlined, LockOutlined } from "@ant-design/icons";
-import { Button, Form, Typography } from "antd";
-import { Link } from "react-router-dom";
-import { Paths } from "../../../router/paths";
-import { Input } from "../../components/CustomAntdComponents/Input";
+import { CheckCircleFilled } from "@ant-design/icons";
+import { Form, Typography } from "antd";
+import classNames from "classnames";
+import { useState } from "react";
 import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
+import { Color } from "../../../assets/colors";
+import { ArrowLeftIcon } from "../../../assets/icons";
+import { Paths } from "../../../router/paths";
+import { Button } from "../../components/CustomAntdComponents/Button";
 import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
+import { Input } from "../../components/CustomAntdComponents/Input";
 
 const useStyles = createUseStyles({
     container: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '24px'
     },
     header: {
         display: 'flex',
@@ -33,18 +35,46 @@ const useStyles = createUseStyles({
     },
     checkItem: {
         fontSize: '12px',
-        color: '#667085'
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        "&:not(:last-child)": {
+            marginBottom: '12px'
+        }
+    },
+    valid: {
+        color: Color.brand.solid
+    },
+    invalid: {
+        color: '#D0D5DD'
+    },
+    checkCircle: {
+        fontSize: '20px'
     },
     backLink: {
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
-        marginTop: '16px'
+        marginTop: '16px',
+        justifyContent: "center",
+        "&:hover": {
+            textDecoration: "underline"
+        }
     }
 });
 
 export const SetNewPassword = () => {
     const classes = useStyles();
+    const [password, setPassword] = useState("");
+
+    const hasMinLength = password.length >= 8;
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+
+    const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value);
+    };
 
     return (
         <div className={classes.container}>
@@ -56,23 +86,47 @@ export const SetNewPassword = () => {
 
             <Form className={classes.form} layout="vertical">
                 <Form.Item
+                    required={false}
                     label="Password"
                     name="password"
-                    rules={[
-                        { required: true, message: 'Please input your password!' },
-                        { min: 8, message: 'Password must be at least 8 characters!' },
-                        { pattern: /[!@#$%^&*(),.?":{}|<>]/, message: 'Password must contain one special character!' }
-                    ]}
+                    validateTrigger={[]}
                 >
-                    <Input.Password prefix={<LockOutlined />} placeholder="Enter password" size="large" />
+                    <Input.Password
+                        placeholder="Enter password"
+                        size="large"
+                        onChange={handlePasswordChange}
+                    />
                 </Form.Item>
 
-                <div className={classes.passwordChecks}>
-                    <div className={classes.checkItem}>• Must be at least 8 characters</div>
-                    <div className={classes.checkItem}>• Must contain one special character</div>
+                <div className={classNames(classes.passwordChecks)}>
+                    <div className={classNames(classes.checkItem, {
+                        [classes.valid]: hasMinLength,
+                        [classes.invalid]: !hasMinLength
+                    })}>
+                        <CheckCircleFilled className={classes.checkCircle} /> Must be at least 8 characters
+                    </div>
+                    <div className={classNames(classes.checkItem, {
+                        [classes.valid]: hasSpecialChar,
+                        [classes.invalid]: !hasSpecialChar
+                    })}>
+                        <CheckCircleFilled className={classes.checkCircle} /> Must contain one special character
+                    </div>
+                    <div className={classNames(classes.checkItem, {
+                        [classes.valid]: hasUpperCase,
+                        [classes.invalid]: !hasUpperCase
+                    })}>
+                        <CheckCircleFilled className={classes.checkCircle} /> Must contain one uppercase letter
+                    </div>
+                    <div className={classNames(classes.checkItem, {
+                        [classes.valid]: hasNumber,
+                        [classes.invalid]: !hasNumber
+                    })}>
+                        <CheckCircleFilled className={classes.checkCircle} /> Must contain one number
+                    </div>
                 </div>
 
                 <Form.Item
+                    required={false}
                     label="Confirm Password"
                     name="confirmPassword"
                     dependencies={['password']}
@@ -88,18 +142,24 @@ export const SetNewPassword = () => {
                         }),
                     ]}
                 >
-                    <Input.Password prefix={<LockOutlined />} placeholder="Confirm password" size="large" />
+                    <Input.Password placeholder="Confirm password" size="large" />
                 </Form.Item>
 
                 <Form.Item>
-                    <Button type="primary" htmlType="submit" size="large" block>
+                    <Button
+                        type="primary"
+                        htmlType="submit"
+                        size="large"
+                        block
+                        disabled={!(hasMinLength && hasSpecialChar && hasUpperCase && hasNumber)}
+                    >
                         Reset password
                     </Button>
                 </Form.Item>
             </Form>
 
             <Link to={Paths.LOGIN} className={classes.backLink}>
-                <ArrowLeftOutlined />
+                <ArrowLeftIcon />
                 <Typography.Text>Back to log in</Typography.Text>
             </Link>
         </div>
