@@ -8,9 +8,14 @@ import { Input } from "../../../components/CustomAntdComponents/Input";
 const { Header: AntdHeader } = Layout;
 
 const content = (
-    <div>
-        <p>Content</p>
-        <p>Content</p>
+    <div style={{ padding: '8px', cursor: 'pointer' }}>
+        <p>Profile</p>
+        <p onClick={() => {
+            localStorage.removeItem('token');
+            window.location.reload();
+        }}>
+            Logout
+        </p>
     </div>
 );
 

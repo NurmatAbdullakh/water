@@ -10,6 +10,9 @@ export const Color = {
         secaondaryHover: "#252B37",
         tertiary: {
             "600": "#535862"
+        },
+        quaternary: {
+            "500": "#717680"
         }
     },
     brand: {

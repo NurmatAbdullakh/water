@@ -12,7 +12,7 @@ const useStyle = createUseStyles(() => ({
     contentBlock: {
         border: "1px solid #e8e8e8",
         borderRadius: "20px",
-        height: "100%",
+        height: "calc(100% - 8px)",
         width: "100%",
         maxHeight: "932px",
         padding: "20px",

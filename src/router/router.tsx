@@ -20,6 +20,7 @@ const LoadingSpinner = () => (
 
 // Lazy load auth-related pages
 const Login = lazy(() => import("../UI/pages/Login"));
+const Users = lazy(() => import("../UI/pages/Users"));
 const SignUp = lazy(() => import("../UI/pages/SignUp"));
 const ForgotPassword = lazy(() => import("../UI/pages/ForgotPassword"));
 const CheckYourEmail = lazy(() => import("../UI/pages/CheckYourEmail"));
@@ -38,7 +39,6 @@ const Dashboard = () => (
 );
 
 // Lazy load main content pages
-const Users = () => <>it is empty</>
 const Profile = () => <>it is empty</>
 const AdminRoles = () => <>it is empty</>
 const Subscriptions = () => <>it is empty</>

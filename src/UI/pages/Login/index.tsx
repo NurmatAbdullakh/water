@@ -1,5 +1,5 @@
 import { Checkbox, Form, Row, Typography } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Paths } from "../../../router/paths";
 import { Input } from "../../components/CustomAntdComponents/Input";
 import styles from './index.module.css';
@@ -15,12 +15,23 @@ const useStyles = createUseStyles({
 })
 
 function Login() {
-    const classes = useStyles()
+    const classes = useStyles();
+    const navigate = useNavigate();
+
+    const onFinish = (values: { email: string; password: string }) => {
+        localStorage.setItem('token', `${values.email}-${values.password}`);
+        navigate(Paths.HOME);
+    };
+
     return (
         <div>
             <div className={styles.authFormContainer}>
                 <AuthHeader title="Welcome Back" subtitle="Welcome back! Please enter your details." logo="/Logomark.png" />
-                <Form className={styles.authForm} layout="vertical">
+                <Form
+                    className={styles.authForm}
+                    layout="vertical"
+                    onFinish={onFinish}
+                >
                     <Form.Item
                         required={false}
                         label="Email"
