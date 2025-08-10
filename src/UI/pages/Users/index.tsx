@@ -8,9 +8,8 @@ export default function Users() {
     const columns = [
         {
             title: 'Name',
-            dataIndex: 'name',
             key: 'name',
-            render: (text: string, record: any) => (
+            render: (record: any) => (
                 <Space>
                     <Avatar src={record.avatar} />
                     <div>
