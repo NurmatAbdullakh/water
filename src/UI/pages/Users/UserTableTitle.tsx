@@ -7,7 +7,7 @@ export const UserTableTitle = () => {
         <Flex justify='space-between' align='center'>
             Users
             <Flex align='center' gap="12px">
-                <Button size='large' icon={<PlusOutlined />} type='primary'>Create User</Button>
+                <Button icon={<PlusOutlined />} type='primary'>Create User</Button>
             </Flex>
         </Flex>
     )

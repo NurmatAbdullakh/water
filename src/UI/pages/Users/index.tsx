@@ -1,8 +1,12 @@
-import { DeleteOutlined, EditOutlined, MailOutlined, } from '@ant-design/icons'
-import { Avatar, Space, Tag } from 'antd'
+import { Flex } from 'antd'
 import dayjs from 'dayjs'
 import Table from '../../components/CustomAntdComponents/Table'
+import { NameTableValue } from '../../components/TableValues/NameTableValue/NameTableValue'
+import { TextTableValue } from '../../components/TableValues/TextTableValue/TextTableValue'
 import { UserTableTitle } from './UserTableTitle'
+import { StatusTagTableValue } from '../../components/TableValues/StatusTagTableValue/StatusTagTableValue'
+import { TableActionButton } from '../../components/TableValues/TableActionButton/TableActionButton'
+import { EditIcon, MailIcon, TrashtIcon } from '../../../assets/icons'
 
 export default function Users() {
     const columns = [
@@ -10,13 +14,7 @@ export default function Users() {
             title: 'Name',
             key: 'name',
             render: (record: any) => (
-                <Space>
-                    <Avatar src={record.avatar} />
-                    <div>
-                        <div>{record.name}</div>
-                        <div>{record.email}</div>
-                    </div>
-                </Space>
+                <NameTableValue avatarSrc={record.avatar} name={record.name} email={record.email} />
             ),
         },
         {
@@ -24,48 +22,44 @@ export default function Users() {
             dataIndex: 'optOut',
             key: 'optOut',
             render: (optOut: boolean) => (
-                <Tag color={optOut ? 'red' : 'green'}>
-                    {optOut ? 'Yes' : 'No'}
-                </Tag>
+                <StatusTagTableValue isActive={optOut} activeText='yes' inactiveText='no' />
             ),
         },
         {
             title: 'Purchases',
             dataIndex: 'purchases',
             key: 'purchases',
-            render: (amount: number) => `$${amount.toFixed(2)}`,
+            render: (amount: number) => <TextTableValue text={`$${amount.toFixed(2)}`} />,
         },
         {
             title: 'Status',
             dataIndex: 'status',
             key: 'status',
             render: (status: string) => (
-                <Tag color={status === 'paid' ? 'green' : 'red'}>
-                    {status}
-                </Tag>
+                <StatusTagTableValue isActive={status === 'paid'} activeText='paid' inactiveText='not paid' />
             ),
         },
         {
             title: 'Last Login',
             dataIndex: 'lastLogin',
             key: 'lastLogin',
-            render: (date: string) => dayjs(date).format('MMM DD, YYYY'),
+            render: (date: string) => <TextTableValue text={dayjs(date).format('MMM DD, YYYY')} />,
         },
         {
             title: 'Joined',
             dataIndex: 'joined',
             key: 'joined',
-            render: (date: string) => dayjs(date).format('MMM DD, YYYY'),
+            render: (date: string) => <TextTableValue text={dayjs(date).format('MMM DD, YYYY')} />,
         },
         {
             title: 'Actions',
             key: 'actions',
             render: () => (
-                <Space size="middle">
-                    <EditOutlined />
-                    <DeleteOutlined />
-                    <MailOutlined />
-                </Space>
+                <Flex gap={2} align='center'>
+                    <TableActionButton icon={<TrashtIcon />} title='Delete' />
+                    <TableActionButton icon={<EditIcon />} title='Edit' />
+                    <TableActionButton icon={<MailIcon />} title='Send Email' />
+                </Flex>
             ),
         },
     ]
