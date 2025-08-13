@@ -24,4 +24,5 @@ export const Paths = {
   CHECK_YOUREMAIL: "/check-your-email",
   SET_NEW_PASSWORD: "/set-new-password",
   PASSWORD_RESET: "/password-reset",
+  PERSONAL_INFO: "/personal-info"
 };

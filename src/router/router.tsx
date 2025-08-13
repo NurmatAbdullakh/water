@@ -26,6 +26,7 @@ const ForgotPassword = lazy(() => import("../UI/pages/ForgotPassword"));
 const CheckYourEmail = lazy(() => import("../UI/pages/CheckYourEmail"));
 const SetNewPassword = lazy(() => import("../UI/pages/SetNewPassword"));
 const PasswordReset = lazy(() => import("../UI/pages/PasswordReset"));
+const PersonalInfo = lazy(() => import("../UI/pages/PersonalInfo"));
 
 // Dashboard and other components
 const Dashboard = () => <> it is empty</>;
@@ -254,11 +255,12 @@ export const router = createBrowserRouter([
                             </Suspense>
                         ),
                     },
+
                     {
-                        path: Paths.SETTINGS,
+                        path: Paths.PERSONAL_INFO,
                         element: (
                             <Suspense fallback={<LoadingSpinner />}>
-                                <Settings />
+                                <PersonalInfo />
                             </Suspense>
                         ),
                     },
