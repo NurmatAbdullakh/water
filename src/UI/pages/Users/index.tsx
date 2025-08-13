@@ -52,7 +52,6 @@ export default function Users() {
             render: (date: string) => <TextTableValue text={dayjs(date).format('MMM DD, YYYY')} />,
         },
         {
-            title: 'Actions',
             key: 'actions',
             render: () => (
                 <Flex gap={2} align='center'>

@@ -1,15 +1,12 @@
+import { Spin } from "antd";
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { Paths } from "./paths";
-import { Layout } from "../UI/layouts/Layout";
-import DashboardOverview from "../UI/components/DashboardOverview";
-import { Space, Spin } from "antd";
-import PurchasesChart from "../UI/components/PurchasesChart";
-import SiteTrafficChart from "../UI/components/SiteTrafficChart";
-import { ProtectedRoute } from "./ProtectedRoute";
-import { PublicRoute } from "./PublicRoute";
 import { AuthLayout } from "../UI/layouts/AuthLayout";
 import { CenteredLayout } from "../UI/layouts/CenteredLayout";
-import { lazy, Suspense } from "react";
+import { Layout } from "../UI/layouts/Layout";
+import { Paths } from "./paths";
+import { ProtectedRoute } from "./ProtectedRoute";
+import { PublicRoute } from "./PublicRoute";
 
 // Create a reusable loading component
 const LoadingSpinner = () => (
@@ -22,6 +19,8 @@ const LoadingSpinner = () => (
 const Login = lazy(() => import("../UI/pages/Login"));
 const Users = lazy(() => import("../UI/pages/Users"));
 const UsersCreate = lazy(() => import("../UI/pages/UsersCreate"));
+const AdminRolesCreate = lazy(() => import("../UI/pages/AdminRolesCreate"));
+const AdminRoles = lazy(() => import("../UI/pages/AdminRoles"));
 const SignUp = lazy(() => import("../UI/pages/SignUp"));
 const ForgotPassword = lazy(() => import("../UI/pages/ForgotPassword"));
 const CheckYourEmail = lazy(() => import("../UI/pages/CheckYourEmail"));
@@ -29,19 +28,8 @@ const SetNewPassword = lazy(() => import("../UI/pages/SetNewPassword"));
 const PasswordReset = lazy(() => import("../UI/pages/PasswordReset"));
 
 // Dashboard and other components
-const Dashboard = () => (
-    <div>
-        <Space direction="vertical" size="large" style={{ width: '100%' }}>
-            <DashboardOverview />
-            <PurchasesChart />
-            <SiteTrafficChart />
-        </Space>
-    </div>
-);
-
-// Lazy load main content pages
+const Dashboard = () => <> it is empty</>;
 const Profile = () => <>it is empty</>
-const AdminRoles = () => <>it is empty</>
 const Subscriptions = () => <>it is empty</>
 const WebsiteAnalytics = () => <>it is empty</>
 const StockAnalyses = () => <>it is empty</>
@@ -167,6 +155,14 @@ export const router = createBrowserRouter([
                         element: (
                             <Suspense fallback={<LoadingSpinner />}>
                                 <AdminRoles />
+                            </Suspense>
+                        ),
+                    },
+                    {
+                        path: Paths.ADMIN_ROLES_CREATE,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <AdminRolesCreate />
                             </Suspense>
                         ),
                     },
