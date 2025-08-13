@@ -12,7 +12,6 @@ const useStyles = createUseStyles({
         fontWeight: 500,
         transition: 'all 0.3s ease',
         gap: '8px',
-        boxShadow: "0 0 0 1px  rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0  rgba(10, 13, 18, 0.05)",
         '&.ant-btn-primary': {
             backgroundColor: Color.brand.solid,
             '&:hover': {

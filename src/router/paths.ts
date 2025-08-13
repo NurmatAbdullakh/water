@@ -1,6 +1,7 @@
 export const Paths = {
   HOME: "/",
   USERS: "/users",
+  USERS_CREATE: "/users/create",
   PROFILE: "/profile",
   ADMIN_ROLES: "/admin/roles",
   SUBSCRIPTIONS: "/subscriptions",

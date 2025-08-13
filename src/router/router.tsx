@@ -21,6 +21,7 @@ const LoadingSpinner = () => (
 // Lazy load auth-related pages
 const Login = lazy(() => import("../UI/pages/Login"));
 const Users = lazy(() => import("../UI/pages/Users"));
+const UsersCreate = lazy(() => import("../UI/pages/UsersCreate"));
 const SignUp = lazy(() => import("../UI/pages/SignUp"));
 const ForgotPassword = lazy(() => import("../UI/pages/ForgotPassword"));
 const CheckYourEmail = lazy(() => import("../UI/pages/CheckYourEmail"));
@@ -142,6 +143,14 @@ export const router = createBrowserRouter([
                         element: (
                             <Suspense fallback={<LoadingSpinner />}>
                                 <Users />
+                            </Suspense>
+                        ),
+                    },
+                    {
+                        path: Paths.USERS_CREATE,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <UsersCreate />
                             </Suspense>
                         ),
                     },
