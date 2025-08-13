@@ -21,7 +21,7 @@ function AdminRoles() {
             dataIndex: 'Role',
             key: 'Role',
             innerWidth: "72px",
-            render: (optOut: boolean) => (
+            render: () => (
                 <>role</>
             ),
         },
@@ -30,7 +30,7 @@ function AdminRoles() {
             dataIndex: 'Revenue Share',
             key: 'Revenue Share',
             innerWidth: "135px",
-            render: (amount: number) => <TextTableValue text={"-"} />,
+            render: () => <TextTableValue text={"-"} />,
         },
         {
             key: 'actions',

@@ -42,7 +42,6 @@ const Articles = () => <>it is empty</>
 const Webinars = () => <>it is empty</>
 const SupportTickets = () => <>it is empty</>
 const Notifications = () => <>it is empty</>
-const Settings = () => <>it is empty</>
 const NotFound = () => <>it is empty</>
 
 export const router = createBrowserRouter([
