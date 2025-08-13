@@ -5,7 +5,7 @@ export const Color = {
     },
     text: {
         secondary: {
-            "700": "#252B37"
+            "700": "#414651"
         },
         secaondaryHover: "#252B37",
         tertiary: {
