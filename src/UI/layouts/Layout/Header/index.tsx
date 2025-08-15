@@ -19,7 +19,6 @@ const useStyles = createUseStyles({
         top: "0",
         zIndex: 1,
         background: "#fff",
-        marginBottom: "32px",
         borderBottom: (props: StyleProps) => `1px solid ${props.borderColor}`,
         height: "72px",
         display: "flex",

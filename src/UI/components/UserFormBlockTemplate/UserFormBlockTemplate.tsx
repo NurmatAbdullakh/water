@@ -1,16 +1,18 @@
-import type { FC } from "react"
 import type React from "react"
-import styles from "./UserFormBlockTemplate.module.css"
+import type { FC } from "react"
+import type { FormIdsType } from "../../../type"
 import { Button } from "../CustomAntdComponents/Button"
+import styles from "./UserFormBlockTemplate.module.css"
 
 interface props {
     title: string
     subtitle: string
     form: React.ReactNode
     submitButtonText: string
+    SubmitButtonFormId: FormIdsType
 }
 
-export const UserFormBlockTemplate: FC<props> = ({ title, subtitle, form, submitButtonText }) => {
+export const UserFormBlockTemplate: FC<props> = ({ title, subtitle, form, submitButtonText, SubmitButtonFormId }) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.heading}>
@@ -21,7 +23,15 @@ export const UserFormBlockTemplate: FC<props> = ({ title, subtitle, form, submit
                 <div className={styles.formBody}>{form}</div>
                 <div className={styles.footer}>
                     <Button size="middle">Cancel</Button>
-                    <Button type="primary" size="middle">{submitButtonText}</Button>
+                    <Button
+                        type="primary"
+                        size="middle"
+                        form={SubmitButtonFormId}
+                        htmlType="submit"
+                        onSubmit={(values) => console.log(values)}
+                    >
+                        {submitButtonText}
+                    </Button>
                 </div>
             </div>
         </div>

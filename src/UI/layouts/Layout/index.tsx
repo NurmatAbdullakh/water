@@ -17,10 +17,10 @@ const useStyles = createUseStyles({
     content: {
         background: "#fff",
         height: "100vh",
-        overflowY: "auto"
+        overflowY: "auto",
     },
     contentWrapper: {
-        padding: "0 32px",
+        padding: "32px",
         animation: "$fadeIn 0.3s ease-in-out"
     },
     "@keyframes fadeIn": {
