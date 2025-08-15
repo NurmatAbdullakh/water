@@ -93,12 +93,37 @@ export default function Users() {
     ]
 
     return (
-        <Table
-            bordered
-            scroll={{ x: 1600 }}
-            columns={columns}
-            dataSource={mockData}
-            title={() => <UserTableTitle />}
-        />
+        <>
+            <Table
+                bordered
+                scroll={{ x: 1600 }}
+                columns={columns}
+                dataSource={mockData}
+                title={() => <UserTableTitle />}
+            />
+            <Table
+                bordered
+                scroll={{ x: 1600 }}
+                columns={columns}
+                dataSource={mockData}
+                title={() => <UserTableTitle />}
+            />
+            <Table
+                bordered
+                scroll={{ x: 1600 }}
+                columns={columns}
+                dataSource={mockData}
+                title={() => <UserTableTitle />}
+            />
+            <Table
+                bordered
+                scroll={{ x: 1600 }}
+                columns={columns}
+                dataSource={mockData}
+                title={() => <UserTableTitle />}
+            />
+
+        </>
+
     )
 }

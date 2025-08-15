@@ -1,6 +1,5 @@
 import { Divider } from "antd"
 import { UserFormBlockTemplate } from "../../components/UserFormBlockTemplate/UserFormBlockTemplate"
-import { PageTitle } from "../../components/PageTitle/PageTitle"
 import { FormIds } from "../../../type"
 import PersonalInfoForm from "../../components/Forms/PersonalInfoForm"
 import { ChangePasswordForm } from "../../components/Forms/ChangePasswordForm"

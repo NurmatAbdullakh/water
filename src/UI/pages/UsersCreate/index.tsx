@@ -15,10 +15,10 @@ function UsersCreate() {
     const onSubmit = (data: any) => {
         if (id) {
             // update
-            console.log("update");
+            console.log("update", data);
         } else {
             // create
-            console.log("create")
+            console.log("create", data)
         }
     }
     const onSubmitChangePassword = (data: any) => {

@@ -1,14 +1,19 @@
-import { MenuOutlined } from "@ant-design/icons";
-import { Layout as AntLayout, Button, Drawer } from "antd";
+import { Layout as AntLayout, Button, Drawer, Flex, Image } from "antd";
 import { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
+import { MenuIcon } from "../../../../assets/icons";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
 import { Paths } from "../../../../router/paths";
 import { Menu } from "./Menu";
 import { menuItems } from "./menuItems";
+import { Color } from "../../../../assets/colors";
 
 const useStyle = createUseStyles(() => ({
+    header: {
+        padding: "16px",
+        borderBottom: `1px solid ${Color.border.secondary}`,
+    },
     contentBlock: {
         border: "1px solid #e8e8e8",
         borderRadius: "20px",
@@ -29,21 +34,21 @@ export const Sidebar = () => {
 
     const [drawerOpen, setDrawerOpen] = useState(false);
 
-    const { Header, Sider } = AntLayout;
+    const { Sider } = AntLayout;
 
 
     return isMobile ? (
         <>
-            <Header style={{ padding: "0 16px", display: "flex", alignItems: "center" }}>
+            <Flex justify="space-between" align="center" className={classes.header}>
+                <Image src="/Logo.svg" alt="logo" width={160} height={32} />
                 <Button
                     type="text"
-                    icon={<MenuOutlined />}
+                    icon={<MenuIcon />}
                     onClick={() => setDrawerOpen(true)}
                 />
-                <div style={{ marginLeft: "16px", color: "white" }}>Akinda Admin</div>
-            </Header>
+            </Flex>
             <Drawer
-                placement="left"
+                placement="right"
                 onClose={() => setDrawerOpen(false)}
                 open={drawerOpen}
                 width={300}
