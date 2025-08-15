@@ -5,6 +5,8 @@ import { AdminRolesTableTitle } from "./AdminRolesTableTitle"
 import { TableActionButton } from "../../components/TableValues/TableActionButton/TableActionButton"
 import { EditIcon, TrashtIcon } from "../../../assets/icons"
 import { TextTableValue } from "../../components/TableValues/TextTableValue/TextTableValue"
+import { PathGenerators } from "../../../router/paths"
+import { Link } from "react-router-dom"
 
 function AdminRoles() {
     const columns = [
@@ -34,10 +36,12 @@ function AdminRoles() {
         },
         {
             key: 'actions',
-            render: () => (
+            render: (record: any) => (
                 <Flex gap={2} align='center'>
                     <TableActionButton icon={<TrashtIcon />} title='Delete' />
-                    <TableActionButton icon={<EditIcon />} title='Edit' />
+                    <Link to={PathGenerators.ADMIN_ROLES_DETAILS_ID(record.key)}>
+                        <TableActionButton icon={<EditIcon />} title='Edit' />
+                    </Link>
                 </Flex>
             ),
         },

@@ -2,7 +2,9 @@ export const Paths = {
   HOME: "/",
   USERS: "/users",
   USERS_CREATE: "/users/create",
+  USERS_DETAILS_ID: "/users/details/:id",
   ADMIN_ROLES_CREATE: "/admin-roles/create",
+  ADMIN_ROLES_DETAILS_ID: "/admin-roles/details/:id",
   PROFILE: "/profile",
   ADMIN_ROLES: "/admin-roles",
   SUBSCRIPTIONS: "/subscriptions",
@@ -24,5 +26,10 @@ export const Paths = {
   CHECK_YOUREMAIL: "/check-your-email",
   SET_NEW_PASSWORD: "/set-new-password",
   PASSWORD_RESET: "/password-reset",
-  PERSONAL_INFO: "/personal-info"
+  PERSONAL_INFO: "/personal-info",
 };
+
+export const PathGenerators = {
+  USERS_DETAILS_ID: (id: string) => Paths.USERS_DETAILS_ID.replace(':id', id),
+  ADMIN_ROLES_DETAILS_ID: (id: string) => Paths.ADMIN_ROLES_DETAILS_ID.replace(':id', id),
+}

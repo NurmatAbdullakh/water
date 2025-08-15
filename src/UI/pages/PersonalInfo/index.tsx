@@ -8,7 +8,6 @@ import { ChangePasswordForm } from "../../components/Forms/ChangePasswordForm"
 function PersonalInfo() {
     return (
         <div>
-            <PageTitle>Create New User</PageTitle>
             <UserFormBlockTemplate
                 SubmitButtonFormId={FormIds.PersonalInfo}
                 title="Personal info"

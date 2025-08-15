@@ -3,13 +3,13 @@ import { Button, Form, Select, Upload } from 'antd';
 import type { FC } from 'react';
 import React from 'react';
 import { createUseStyles } from 'react-jss';
-import { FormIds } from '../../../type';
+import { FormIds, type FormTypeType } from '../../../type';
 import { Input } from '../CustomAntdComponents/Input';
 
 const { TextArea } = Input;
 
 interface PersonalInfoFormProps {
-    type: 'create' | 'edit';
+    type: FormTypeType;
     onSubmit: (values: any) => void;
 }
 

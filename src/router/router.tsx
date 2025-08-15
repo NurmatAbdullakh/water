@@ -143,6 +143,14 @@ export const router = createBrowserRouter([
                         ),
                     },
                     {
+                        path: Paths.USERS_DETAILS_ID,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <UsersCreate />
+                            </Suspense>
+                        ),
+                    },
+                    {
                         path: Paths.PROFILE,
                         element: (
                             <Suspense fallback={<LoadingSpinner />}>
@@ -160,6 +168,14 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: Paths.ADMIN_ROLES_CREATE,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <AdminRolesCreate />
+                            </Suspense>
+                        ),
+                    },
+                    {
+                        path: Paths.ADMIN_ROLES_DETAILS_ID,
                         element: (
                             <Suspense fallback={<LoadingSpinner />}>
                                 <AdminRolesCreate />
