@@ -2,6 +2,7 @@ import { Layout as AntLayout } from "antd";
 import { createUseStyles } from "react-jss";
 import { Outlet, useLocation } from "react-router-dom";
 import { Sidebar } from "./SideBar";
+import { Header } from "./Header";
 
 const { Content } = AntLayout;
 
@@ -46,7 +47,7 @@ export const Layout = () => {
         <AntLayout className={classes.layout}>
             <Sidebar />
             <Content className={classes.content}>
-                {/* <Header /> */}
+                <Header />
                 <div className={classes.contentWrapper} key={location.pathname}>
                     <Outlet />
                 </div>
