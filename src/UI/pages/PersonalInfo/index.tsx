@@ -14,7 +14,7 @@ function PersonalInfo() {
                 title="Personal info"
                 subtitle="Update photo and personal details."
                 submitButtonText="Save changes"
-                form={<PersonalInfoForm type="create" onSubmit={(data) => console.log(data)} />}
+                form={<PersonalInfoForm type="edit" onSubmit={(data) => console.log(data)} />}
             />
             <Divider />
             <UserFormBlockTemplate
