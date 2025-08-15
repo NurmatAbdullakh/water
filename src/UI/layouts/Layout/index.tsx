@@ -21,7 +21,10 @@ const useStyles = createUseStyles({
     },
     contentWrapper: {
         padding: "32px",
-        animation: "$fadeIn 0.3s ease-in-out"
+        animation: "$fadeIn 0.3s ease-in-out",
+        "@media (max-width: 992px)": {
+            padding: "16px",
+        }
     },
     "@keyframes fadeIn": {
         "0%": {

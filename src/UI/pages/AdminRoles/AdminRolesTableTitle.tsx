@@ -10,7 +10,7 @@ export const AdminRolesTableTitle = () => {
             Admins
             <Flex align='center' gap="12px">
                 <Link to={Paths.ADMIN_ROLES_CREATE}>
-                    <Button icon={<PlusOutlined />} type='primary'>Add Admin</Button>
+                    <Button size='large' icon={<PlusOutlined />} type='primary'>Add Admin</Button>
                 </Link>
             </Flex>
         </Flex>

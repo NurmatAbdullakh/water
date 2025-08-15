@@ -38,7 +38,7 @@ const useStyles = createUseStyles({
             },
         },
         '&.ant-btn-lg': {
-            height: '44px',
+            height: '40px',
             fontSize: '16px',
             padding: '10px 18px',
         },

@@ -22,10 +22,10 @@ export const UserFormBlockTemplate: FC<props> = ({ title, subtitle, form, submit
             <div className={styles.formBlock}>
                 <div className={styles.formBody}>{form}</div>
                 <div className={styles.footer}>
-                    <Button size="middle">Cancel</Button>
+                    <Button size="large">Cancel</Button>
                     <Button
                         type="primary"
-                        size="middle"
+                        size="large"
                         form={SubmitButtonFormId}
                         htmlType="submit"
                         onSubmit={(values) => console.log(values)}

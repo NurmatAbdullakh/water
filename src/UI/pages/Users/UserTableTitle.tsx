@@ -10,7 +10,7 @@ export const UserTableTitle = () => {
             Users
             <Flex align='center' gap="12px">
                 <Link to={Paths.USERS_CREATE}>
-                    <Button icon={<PlusOutlined />} type='primary'>Create User</Button>
+                    <Button size='large' icon={<PlusOutlined />} type='primary'>Create User</Button>
                 </Link>
             </Flex>
         </Flex>

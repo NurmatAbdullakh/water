@@ -81,6 +81,22 @@ const PersonalInfoForm: FC<PersonalInfoFormProps> = ({ type, onSubmit }) => {
             </Form.Item>
 
             <Form.Item
+                name="tags"
+                label="Tags"
+            >
+                <Select
+                    mode="multiple"
+                    placeholder="Select tags"
+                    style={{ width: '100%' }}
+                >
+                    <Select.Option value="frontend">Frontend</Select.Option>
+                    <Select.Option value="backend">Backend</Select.Option>
+                    <Select.Option value="design">Design</Select.Option>
+                    <Select.Option value="management">Management</Select.Option>
+                    <Select.Option value="marketing">Marketing</Select.Option>
+                </Select>
+            </Form.Item>
+            <Form.Item
                 name="role"
                 label="Role"
                 rules={[{ required: true, message: 'Please select a role!' }]}

@@ -40,12 +40,14 @@ export const Sidebar = () => {
     return isMobile ? (
         <>
             <Flex justify="space-between" align="center" className={classes.header}>
-                <Image src="/Logo.svg" alt="logo" width={160} height={32} />
-                <Button
-                    type="text"
-                    icon={<MenuIcon />}
-                    onClick={() => setDrawerOpen(true)}
-                />
+                <Image preview={false} src="/Logo.svg" alt="logo" width={160} height={32} />
+                <Link to={Paths.HOME}>
+                    <Button
+                        type="text"
+                        icon={<MenuIcon />}
+                        onClick={() => setDrawerOpen(true)}
+                    />
+                </Link>
             </Flex>
             <Drawer
                 placement="right"
