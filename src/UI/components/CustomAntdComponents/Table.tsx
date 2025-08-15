@@ -8,6 +8,7 @@ const useStyles = createUseStyles({
         "& .ant-table-title": {
             fontSize: "18px",
             fontWeight: "600",
+            borderRadius: "12px 12px 0 0 !important"
         },
 
         "& .ant-table-cell": {
@@ -32,8 +33,9 @@ const useStyles = createUseStyles({
                 padding: "26px 24px !important",
             }
         },
-        "& table": {
-            borderRadius: "0 0 12px 12px !important"
+        "& ant-table-row:last-child": {
+            borderRadius: "12px 12px 0 0 !important"
+
         },
 
         "& .ant-table-cell-row-hover": {
