@@ -65,7 +65,7 @@ export const Sidebar = () => {
             <div className={classes.contentBlock}>
                 <div className={classes.logo}>
                     <Link to={Paths.HOME}>
-                        <img src="../../../../public/Logo.svg" alt="logo" />
+                        <img src="/Logo.svg" alt="logo" />
                     </Link>
                 </div>
                 {menuItems.map((item) => (
