@@ -1,10 +1,12 @@
-import { UploadOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Form, Select, Upload } from 'antd';
+import { DownOutlined, UploadOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Flex, Form, Typography } from 'antd';
 import type { FC } from 'react';
-import React from 'react';
 import { createUseStyles } from 'react-jss';
 import { FormIds, type FormTypeType } from '../../../type';
 import { Input } from '../CustomAntdComponents/Input';
+import Select from '../CustomAntdComponents/Select';
+import Upload from '../CustomAntdComponents/Upload';
+import { UploadCloudIcon } from '../../../assets/icons';
 
 const { TextArea } = Input;
 
@@ -15,20 +17,25 @@ interface PersonalInfoFormProps {
 
 const useStyles = createUseStyles({
     avatarSection: {
-        display: 'flex',
-        alignItems: 'center',
+        display: "grid",
+        gridTemplateColumns: "auto 1fr",
         gap: 20,
     },
+    upload: {
+        display: "grid",
+        justifyItems: "center",
+        gap: "4px"
+
+    },
     avatar: {
-        width: 100,
-        height: 100,
+        width: 64,
+        height: 64,
         borderRadius: '50%',
         backgroundColor: '#f5f5f5',
         display: 'flex',
-        alignItems: 'center',
         justifyContent: 'center',
         '& .anticon': {
-            fontSize: 48,
+            fontSize: 20,
             color: '#bfbfbf',
         },
     },
@@ -37,7 +44,6 @@ const useStyles = createUseStyles({
 const PersonalInfoForm: FC<PersonalInfoFormProps> = ({ type, onSubmit }) => {
     const classes = useStyles();
     const [form] = Form.useForm();
-    const [charCount, setCharCount] = React.useState(275);
 
     const handleSubmit = (values: any) => {
         onSubmit(values);
@@ -74,8 +80,12 @@ const PersonalInfoForm: FC<PersonalInfoFormProps> = ({ type, onSubmit }) => {
                     <div className={classes.avatar}>
                         <UserOutlined />
                     </div>
-                    <Upload>
-                        <Button icon={<UploadOutlined />}>Upload Avatar</Button>
+                    <Upload >
+                        <div className={classes.upload}>
+                            <Button style={{ marginBottom: "8px" }} icon={<UploadCloudIcon />} />
+                            <Typography.Text type='secondary'> <span className="linkText">Click to upload</span> or drag and drop</Typography.Text>
+                            <Typography.Text type='secondary'>SVG, PNG, JPG or GIF (max. 800x400px)</Typography.Text>
+                        </div>
                     </Upload>
                 </div>
             </Form.Item>
@@ -88,6 +98,7 @@ const PersonalInfoForm: FC<PersonalInfoFormProps> = ({ type, onSubmit }) => {
                     mode="multiple"
                     placeholder="Select tags"
                     style={{ width: '100%' }}
+                    suffixIcon={<DownOutlined />}
                 >
                     <Select.Option value="frontend">Frontend</Select.Option>
                     <Select.Option value="backend">Backend</Select.Option>
@@ -112,10 +123,8 @@ const PersonalInfoForm: FC<PersonalInfoFormProps> = ({ type, onSubmit }) => {
                 <TextArea
                     maxLength={275}
                     showCount={{
-                        formatter: ({ count }) => {
-                            setCharCount(275 - count);
-                            return `${charCount} characters left`;
-                        },
+                        formatter: ({ count, maxLength }) =>
+                            `${maxLength! - count} characters left`,
                     }}
                 />
             </Form.Item>

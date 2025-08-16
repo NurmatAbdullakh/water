@@ -112,3 +112,6 @@ h6 {
   margin-top: 6px;
 }
 
+.ant-form-item-required::before{
+  color: #7F56D9 !important;
+}
