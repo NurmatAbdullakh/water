@@ -1,4 +1,4 @@
-import { Flex } from "antd"
+import { Flex, Tag } from "antd"
 import Table from "../../components/CustomAntdComponents/Table"
 import { NameTableValue } from "../../components/TableValues/NameTableValue/NameTableValue"
 import { AdminRolesTableTitle } from "./AdminRolesTableTitle"
@@ -24,7 +24,7 @@ function AdminRoles() {
             key: 'Role',
             innerWidth: "72px",
             render: () => (
-                <>role</>
+                <Tag style={{ padding: "2px 8px", borderRadius: "9999px", textTransform: "capitalize" }} color="purple">role</Tag>
             ),
         },
         {
