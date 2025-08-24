@@ -4,6 +4,7 @@ import type { UploadProps } from 'antd';
 
 const useStyles = createUseStyles({
     customUpload: {
+        display: "block !important",
         width: '100%',
         borderRadius: '12px',
         border: '1px solid #E9EAEB',

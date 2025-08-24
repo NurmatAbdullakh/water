@@ -27,13 +27,17 @@ const CheckYourEmail = lazy(() => import("../UI/pages/CheckYourEmail"));
 const SetNewPassword = lazy(() => import("../UI/pages/SetNewPassword"));
 const PasswordReset = lazy(() => import("../UI/pages/PasswordReset"));
 const PersonalInfo = lazy(() => import("../UI/pages/PersonalInfo"));
+const StockAnalyses = lazy(() => import("../UI/pages/StockAnalyses"));
+const TopHalalStock = lazy(() => import("../UI/pages/TopHalalStock"));
+const ReportDetail = lazy(() => import("../UI/pages/ReportDetail"));
+const CreateReport = lazy(() => import("../UI/pages/CreateReport"));
+
 
 // Dashboard and other components
 const Dashboard = () => <> it is empty</>;
 const Profile = () => <>it is empty</>
 const Subscriptions = () => <>it is empty</>
 const WebsiteAnalytics = () => <>it is empty</>
-const StockAnalyses = () => <>it is empty</>
 const StockReport = () => <>it is empty</>
 const TopHalalStocks = () => <>it is empty</>
 const Portfolios = () => <>it is empty</>
@@ -215,14 +219,6 @@ export const router = createBrowserRouter([
                         ),
                     },
                     {
-                        path: Paths.TOP_HALAL_STOCKS,
-                        element: (
-                            <Suspense fallback={<LoadingSpinner />}>
-                                <TopHalalStocks />
-                            </Suspense>
-                        ),
-                    },
-                    {
                         path: Paths.PORTFOLIOS,
                         element: (
                             <Suspense fallback={<LoadingSpinner />}>
@@ -270,12 +266,35 @@ export const router = createBrowserRouter([
                             </Suspense>
                         ),
                     },
-
                     {
                         path: Paths.PERSONAL_INFO,
                         element: (
                             <Suspense fallback={<LoadingSpinner />}>
                                 <PersonalInfo />
+                            </Suspense>
+                        ),
+                    },
+                    {
+                        path: Paths.TOP_HALAL_STOCKS,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <TopHalalStock />
+                            </Suspense>
+                        ),
+                    },
+                    {
+                        path: Paths.REPORT_DETAIL_ID,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <ReportDetail />
+                            </Suspense>
+                        ),
+                    },
+                    {
+                        path: Paths.CREATE_REPORT,
+                        element: (
+                            <Suspense fallback={<LoadingSpinner />}>
+                                <CreateReport />
                             </Suspense>
                         ),
                     },

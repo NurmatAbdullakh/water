@@ -115,3 +115,7 @@ h6 {
 .ant-form-item-required::before{
   color: #7F56D9 !important;
 }
+
+.ck .ck-content{
+  height: 500px;
+}

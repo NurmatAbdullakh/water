@@ -8,7 +8,8 @@ const useStyles = createUseStyles({
         "& .ant-table-title": {
             fontSize: "18px",
             fontWeight: "600",
-            borderRadius: "12px 12px 0 0 !important"
+            borderRadius: "12px 12px 0 0 !important",
+            padding: "0 !important"
         },
 
         "& .ant-table-cell": {

@@ -1,12 +1,12 @@
-import { DownOutlined, UploadOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Flex, Form, Typography } from 'antd';
+import { DownOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Form, Typography } from 'antd';
 import type { FC } from 'react';
 import { createUseStyles } from 'react-jss';
+import { UploadCloudIcon } from '../../../assets/icons';
 import { FormIds, type FormTypeType } from '../../../type';
 import { Input } from '../CustomAntdComponents/Input';
 import Select from '../CustomAntdComponents/Select';
 import Upload from '../CustomAntdComponents/Upload';
-import { UploadCloudIcon } from '../../../assets/icons';
 
 const { TextArea } = Input;
 
@@ -25,7 +25,6 @@ const useStyles = createUseStyles({
         display: "grid",
         justifyItems: "center",
         gap: "4px"
-
     },
     avatar: {
         width: 64,

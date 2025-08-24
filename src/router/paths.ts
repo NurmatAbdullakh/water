@@ -27,9 +27,12 @@ export const Paths = {
   SET_NEW_PASSWORD: "/set-new-password",
   PASSWORD_RESET: "/password-reset",
   PERSONAL_INFO: "/personal-info",
+  REPORT_DETAIL_ID: "/report-detail/:id",
+  CREATE_REPORT: "/create-report"
 };
 
 export const PathGenerators = {
   USERS_DETAILS_ID: (id: string) => Paths.USERS_DETAILS_ID.replace(':id', id),
   ADMIN_ROLES_DETAILS_ID: (id: string) => Paths.ADMIN_ROLES_DETAILS_ID.replace(':id', id),
+  REPORT_DETAIL_ID: (id: string) => Paths.REPORT_DETAIL_ID.replace(':id', id),
 }
