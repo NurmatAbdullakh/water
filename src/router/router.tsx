@@ -39,7 +39,6 @@ const Profile = () => <>it is empty</>
 const Subscriptions = () => <>it is empty</>
 const WebsiteAnalytics = () => <>it is empty</>
 const StockReport = () => <>it is empty</>
-const TopHalalStocks = () => <>it is empty</>
 const Portfolios = () => <>it is empty</>
 const Finance = () => <>it is empty</>
 const Articles = () => <>it is empty</>

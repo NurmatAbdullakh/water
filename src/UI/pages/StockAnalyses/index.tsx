@@ -1,15 +1,14 @@
-import { Flex } from 'antd'
 import dayjs from 'dayjs'
+import { Link } from 'react-router-dom'
+import { Color } from '../../../assets/colors'
+import { EditIcon } from '../../../assets/icons'
+import { PathGenerators } from '../../../router/paths'
 import Table from '../../components/CustomAntdComponents/Table'
 import { NameTableValue } from '../../components/TableValues/NameTableValue/NameTableValue'
-import { TextTableValue } from '../../components/TableValues/TextTableValue/TextTableValue'
 import { StatusTagTableValue } from '../../components/TableValues/StatusTagTableValue/StatusTagTableValue'
 import { TableActionButton } from '../../components/TableValues/TableActionButton/TableActionButton'
-import { EditIcon, MailIcon, TrashtIcon } from '../../../assets/icons'
-import { Link } from 'react-router-dom'
-import { PathGenerators } from '../../../router/paths'
+import { TextTableValue } from '../../components/TableValues/TextTableValue/TextTableValue'
 import { StockAnalysesTableTitle } from './StockAnalysesTableTitle'
-import { Color } from '../../../assets/colors'
 
 export default function StockAnalyses() {
     const columns = [
