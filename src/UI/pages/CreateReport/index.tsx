@@ -14,7 +14,7 @@ function CreateReport() {
     const { id } = useParams()
     const isEdit = id != undefined
     const formType = isEdit ? FormType.edit : FormType.create
-    const PageTitleText = formType === FormType.edit ? "Edit Report" : "Create New Report"
+    const PageTitleText = formType === FormType.edit ? "Edit Report" : "Create Report"
     const [form] = Form.useForm()
 
     const onSubmit = (data: any) => {

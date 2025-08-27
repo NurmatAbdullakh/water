@@ -6,7 +6,7 @@ import { Paths } from '../../../router/paths'
 
 export const AdminRolesTableTitle = () => {
     return (
-        <Flex justify='space-between' align='center'>
+        <Flex justify='space-between' align='center' style={{ padding: "20px 24px" }}>
             Admins
             <Flex align='center' gap="12px">
                 <Link to={Paths.ADMIN_ROLES_CREATE}>
