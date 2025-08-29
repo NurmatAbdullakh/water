@@ -1,13 +1,13 @@
 import { Checkbox, Form, Row, Typography } from "antd";
-import { Link } from "react-router-dom";
-import { Paths } from "../../../router/paths";
-import { Input } from "../../components/CustomAntdComponents/Input";
-import styles from './index.module.css';
-import { Button } from "../../components/CustomAntdComponents/Button";
-import { Color } from "../../../assets/colors";
 import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../../api/auth/AuthProvider";
+import { Color } from "../../../assets/colors";
+import { Paths } from "../../../router/paths";
+import { Button } from "../../components/CustomAntdComponents/Button";
+import { Input } from "../../components/CustomAntdComponents/Input";
 import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
-import api from "../../../api/auth/api";
+import styles from './index.module.css';
 
 const useStyles = createUseStyles({
     secondaryText: {
@@ -16,10 +16,11 @@ const useStyles = createUseStyles({
 })
 
 function Login() {
+    const { login } = useAuth()
     const classes = useStyles();
 
     const onFinish = (values: { email: string; password: string }) => {
-        api.post("/auth/login", { login: values.email, password: values.password })
+        login(values.email, values.password)
     };
 
     return (

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 import api from "./api";
 import { getAccessToken, setAccessToken, logout } from "./authService";
 
@@ -22,22 +22,24 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [token, setTokenState] = useState<string | null>(getAccessToken());
 
     // при монтировании попробуем подтянуть пользователя
-    useEffect(() => {
-        if (token) {
-            api.get("/auth/me")
-                .then((res) => setUser(res.data)) // сервер возвращает {id, email, role}
-                .catch(() => {
-                    logout();
-                    setUser(null);
-                    setTokenState(null);
-                });
-        }
-    }, [token]);
+    // useEffect(() => {
+    //     if (token) {
+    //         api.get("/auth/me")
+    //             .then((res) => setUser(res.data)) // сервер возвращает {id, email, role}
+    //             .catch(() => {
+    //                 logout();
+    //                 setUser(null);
+    //                 setTokenState(null);
+    //             });
+    //     }
+    // }, [token]);
 
     const login = async (email: string, password: string) => {
-        const res = await api.post("/auth/login", { email, password });
+        const res = await api.post("/auth/login", { login: email, password });
+        console.log("login res===>>>", res);
 
-        const { accessToken, user } = res.data;
+
+        const { accessToken, user } = res.data.data;
         setAccessToken(accessToken);
         setTokenState(accessToken);
         setUser(user);

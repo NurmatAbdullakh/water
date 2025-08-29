@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import { Color } from "../../../../assets/colors";
 import { BellIcon, BookOpenIcon, BriefCaseIcon, CheckVerifiedIcon, HelpCircleIcon, LogoutIcon, UserIcon } from "../../../../assets/icons";
 import { Paths } from "../../../../router/paths";
+import { useAuth } from "../../../../api/auth/AuthProvider";
 
 const useStyles = createUseStyles({
     myPopover: {
@@ -72,6 +73,7 @@ const links = [
 ]
 
 const ProgileMenuContent = () => {
+    const { logout } = useAuth()
     const classes = useStyles()
     return <div>
         {
@@ -99,15 +101,12 @@ const ProgileMenuContent = () => {
                 )
             })
         }
-        <p onClick={() => {
-            localStorage.removeItem('token');
-            window.location.reload();
-        }}>
+        <a onClick={logout}>
             <Flex align="center" gap={8}>
                 <LogoutIcon />
                 <div className={classes.label}>Sign out</div>
             </Flex>
-        </p>
+        </a>
 
     </div>
 }
