@@ -10,10 +10,13 @@ import { PublicRoute } from "./PublicRoute";
 
 // Create a reusable loading component
 const LoadingSpinner = () => (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: "300px", }}>
-        <Spin size="large" tip="Loading..." />
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "300px" }}>
+        <Spin size="large" tip="Loading...">
+            <div style={{ width: 0, height: 0 }} /> {/* чтобы tip отобразился */}
+        </Spin>
     </div>
 );
+
 
 // Lazy load auth-related pages
 const Login = lazy(() => import("../UI/pages/Login"));

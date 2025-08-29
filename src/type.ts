@@ -18,3 +18,37 @@ export const Roles = {
 } as const;
 
 export type RolesType = typeof Roles[keyof typeof Roles];
+
+
+export type User = {
+    id: string;
+    client_type_id: string;
+    role_id: string;
+    first_name: string;
+    last_name: string;
+    surname: string;
+    pinfl: string;
+    email: string;
+    phone: string;
+    login: string;
+    birth_date: string;
+    gender: string;
+    image: string;
+    company: string;
+    website: string;
+    bio: string;
+    note: string;
+    twitter: string;
+    linkedin: string;
+    tags: null | string[];
+    email_verified: boolean;
+    phone_verified: boolean;
+    is_active: boolean;
+    last_login: string;
+    failed_login_attempts: number;
+    locked_until: string;
+    password_changed_at: string;
+    two_factor_enabled: boolean;
+    created_at: string;
+    updated_at: string;
+};

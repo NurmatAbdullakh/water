@@ -12,6 +12,7 @@ export const RoleRoute = ({ children, roles }: RoleRouteProps) => {
     if (!user) return <Navigate to="/login" replace />;
 
     // если у юзера нет подходящей роли → редирект на 403 или главную
+    // @ts-ignore
     if (!roles.includes(user.role)) {
         return <Navigate to="/403" replace />;
     }

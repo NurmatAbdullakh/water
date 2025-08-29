@@ -1,17 +1,14 @@
 import { createContext, useContext, useState } from "react";
 import api from "./api";
 import { getAccessToken, setAccessToken, logout } from "./authService";
+import type { User } from "../../type";
 
-type User = {
-    id: string;
-    email: string;
-    role: "ADMIN" | "USER";
-};
+
 
 type AuthContextType = {
     user: User | null;
     token: string | null;
-    login: (email: string, password: string) => Promise<void>;
+    login: (login: string, password: string) => Promise<void>;
     logout: () => void;
 };
 
@@ -25,7 +22,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     // useEffect(() => {
     //     if (token) {
     //         api.get("/auth/me")
-    //             .then((res) => setUser(res.data)) // сервер возвращает {id, email, role}
+    //             .then((res) => setUser(res.data)) // сервер возвращает {id, login, role}
     //             .catch(() => {
     //                 logout();
     //                 setUser(null);
@@ -34,18 +31,21 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     //     }
     // }, [token]);
 
-    const login = async (email: string, password: string) => {
-        const res = await api.post("/auth/login", { login: email, password });
-        console.log("login res===>>>", res);
+    const login = async (login: string, password: string) => {
+        const res = await api.post("/auth/login", { login, password });
 
+        const { user } = res.data.data;
+        const { token } = res.data.data.session;
 
-        const { accessToken, user } = res.data.data;
-        setAccessToken(accessToken);
-        setTokenState(accessToken);
-        setUser(user);
+        if (token && user) {
+            setAccessToken(token);
+            setTokenState(token);
+            setUser(user);
 
-        // если хочешь сохранять пользователя в localStorage:
-        localStorage.setItem("user", JSON.stringify(user));
+            // если хочешь сохранять пользователя в localStorage:
+            localStorage.setItem("user", JSON.stringify(user));
+        }
+
     };
 
     const handleLogout = () => {
