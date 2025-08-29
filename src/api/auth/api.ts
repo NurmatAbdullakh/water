@@ -4,7 +4,8 @@ import { getAccessToken, setAccessToken, logout } from "./authService";
 
 const api = axios.create({
     baseURL: "http://93.127.133.82:8010/api/v1",
-    withCredentials: true, // важно, если refreshToken в httpOnly cookie
+    // baseURL: "https://64787d68362560649a2de2ad.mockapi.io/books",
+    // baseURL: "https://devio.bellissimo.uz/api",
 });
 
 // 🔹 добавляем accessToken в каждый запрос
