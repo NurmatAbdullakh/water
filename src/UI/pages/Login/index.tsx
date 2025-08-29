@@ -1,5 +1,5 @@
 import { Checkbox, Form, Row, Typography } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Paths } from "../../../router/paths";
 import { Input } from "../../components/CustomAntdComponents/Input";
 import styles from './index.module.css';
@@ -7,6 +7,7 @@ import { Button } from "../../components/CustomAntdComponents/Button";
 import { Color } from "../../../assets/colors";
 import { createUseStyles } from "react-jss";
 import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
+import api from "../../../api/auth/api";
 
 const useStyles = createUseStyles({
     secondaryText: {
@@ -16,11 +17,9 @@ const useStyles = createUseStyles({
 
 function Login() {
     const classes = useStyles();
-    const navigate = useNavigate();
 
     const onFinish = (values: { email: string; password: string }) => {
-        localStorage.setItem('token', `${values.email}-${values.password}`);
-        navigate(Paths.HOME);
+        api.post("/auth/login", { login: values.email, password: values.password })
     };
 
     return (

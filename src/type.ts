@@ -11,3 +11,10 @@ export const FormType = {
 } as const;
 
 export type FormTypeType = typeof FormType[keyof typeof FormType];
+
+export const Roles = {
+    USER: "USER",
+    ADMIN: "ADMIN"
+} as const;
+
+export type RolesType = typeof Roles[keyof typeof Roles];

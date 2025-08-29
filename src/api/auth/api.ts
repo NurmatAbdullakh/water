@@ -3,7 +3,7 @@ import { getAccessToken, setAccessToken, logout } from "./authService";
 // authService — утилита для работы с токенами (может хранить в памяти или cookie)
 
 const api = axios.create({
-    baseURL: process.env.REACT_APP_API_URL || "https://your-api.com",
+    baseURL: "http://93.127.133.82:8010/api/v1",
     withCredentials: true, // важно, если refreshToken в httpOnly cookie
 });
 

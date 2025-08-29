@@ -1,9 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
-
-const isAuthenticated = () => {
-    return !!localStorage.getItem("token");
-};
+import { useAuth } from "../api/auth/AuthProvider";
 
 export const PublicRoute = () => {
-    return isAuthenticated() ? <Navigate to="/" replace /> : <Outlet />;
+    const { user } = useAuth();
+
+    return user ? <Navigate to="/" replace /> : <Outlet />;
 };
