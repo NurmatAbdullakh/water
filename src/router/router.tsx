@@ -34,6 +34,7 @@ const StockAnalyses = lazy(() => import("../UI/pages/StockAnalyses"));
 const TopHalalStock = lazy(() => import("../UI/pages/TopHalalStock"));
 const ReportDetail = lazy(() => import("../UI/pages/ReportDetail"));
 const CreateReport = lazy(() => import("../UI/pages/CreateReport"));
+const Finance = lazy(() => import("../UI/pages/Finance"));
 
 
 // Dashboard and other components
@@ -43,7 +44,6 @@ const Subscriptions = () => <>it is empty</>
 const WebsiteAnalytics = () => <>it is empty</>
 const StockReport = () => <>it is empty</>
 const Portfolios = () => <>it is empty</>
-const Finance = () => <>it is empty</>
 const Articles = () => <>it is empty</>
 const Webinars = () => <>it is empty</>
 const SupportTickets = () => <>it is empty</>

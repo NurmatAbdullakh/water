@@ -27,8 +27,8 @@ const useStyles = createUseStyles({
         '&.ant-btn-default': {
             borderColor: '#D0D5DD',
             '&:hover': {
-                borderColor: '#53389E',
-                color: '#53389E',
+                borderColor: `${Color.brand.solid} !important`,
+                color: `${Color.brand.solid} !important`,
             },
         },
         '&.ant-btn-link': {

@@ -8,7 +8,8 @@ import type { TextAreaProps } from 'antd/es/input';
 const useStyles = createUseStyles({
     customInput: {
         borderRadius: "8px",
-        padding: '8px 12px',
+        padding: '8px 12px !important',
+        height: "44px",
         fontSize: 14,
         transition: 'all 0.3s ease',
         border: `1px solid ${Color.border.primary}`,

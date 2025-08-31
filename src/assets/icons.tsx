@@ -167,6 +167,18 @@ const Menu = () => (
         <path d="M3 12H15M3 6H21M3 18H21" stroke="#414651" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
 )
+
+export const ArrowDownRight = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <path d="M3.5 3.5L8.5 8.5M8.5 8.5V3.5M8.5 8.5H3.5" stroke="#F04438" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+)
+
+export const ArrowUpRight = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <path d="M3.5 8.5L8.5 3.5M8.5 3.5H3.5M8.5 3.5V8.5" stroke="#17B26A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+)
 export const UploadCloudIcon = (props: Partial<CustomIconComponentProps>) => (
     <Icon component={UploadCloud} {...props} />
 )
