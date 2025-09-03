@@ -2,7 +2,6 @@ import dayjs from 'dayjs'
 import { Link } from 'react-router-dom'
 import { Color } from '../../../assets/colors'
 import { EditIcon } from '../../../assets/icons'
-import { PathGenerators } from '../../../router/paths'
 import Table from '../../components/CustomAntdComponents/Table'
 import { NameTableValue } from '../../components/TableValues/NameTableValue/NameTableValue'
 import { StatusTagTableValue } from '../../components/TableValues/StatusTagTableValue/StatusTagTableValue'
@@ -49,16 +48,16 @@ export default function StockAnalyses() {
         },
         {
             key: 'actions',
-            render: (record: any) => (
-                <Link to={PathGenerators.REPORT_DETAIL_ID(record.id)}>
+            render: () => (
+                <Link to={"PathGenerators.REPORT_DETAIL_ID(record.id)"}>
                     <TextTableValue color={Color.brand.secondary} text={"Report"} />
                 </Link>
             ),
         },
         {
             key: 'actions',
-            render: (record: any) => (
-                <Link to={PathGenerators.REPORT_DETAIL_ID(record.key)}>
+            render: () => (
+                <Link to={"PathGenerators.REPORT_DETAIL_ID(record.key)"}>
                     <TableActionButton icon={<EditIcon />} title='Edit' />
                 </Link>
             ),

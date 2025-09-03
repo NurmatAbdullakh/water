@@ -8,7 +8,6 @@ import { StatusTagTableValue } from '../../components/TableValues/StatusTagTable
 import { TableActionButton } from '../../components/TableValues/TableActionButton/TableActionButton'
 import { EditIcon, MailIcon, TrashtIcon } from '../../../assets/icons'
 import { Link } from 'react-router-dom'
-import { PathGenerators } from '../../../router/paths'
 
 export default function Users() {
     const columns = [
@@ -55,10 +54,10 @@ export default function Users() {
         },
         {
             key: 'actions',
-            render: (record: any) => (
+            render: () => (
                 <Flex gap={2} align='center'>
                     <TableActionButton icon={<TrashtIcon />} title='Delete' />
-                    <Link to={PathGenerators.USERS_DETAILS_ID(record.key)}>
+                    <Link to={"PathGenerators.USERS_DETAILS_ID(record.key)"}>
                         <TableActionButton icon={<EditIcon />} title='Edit' />
                     </Link>
                     <TableActionButton icon={<MailIcon />} title='Send Email' />

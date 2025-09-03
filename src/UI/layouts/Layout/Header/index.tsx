@@ -1,10 +1,7 @@
-import { Badge, Layout } from "antd";
+import { Layout, Typography } from "antd";
 import { createUseStyles } from "react-jss";
 import { Color } from "../../../../assets/colors";
-import { BellIcon, SearchIcon } from "../../../../assets/icons";
 import { useIsMobile } from "../../../../hooks/useIsMobile";
-import { Input } from "../../../components/CustomAntdComponents/Input";
-import { ProfileMenu } from "./ProfileMenu";
 const { Header: AntdHeader } = Layout;
 
 
@@ -64,17 +61,7 @@ export const Header = () => {
     return (
         !isMobile && (
             <AntdHeader className={classes.header} >
-                <div className={classes.headerContent}>
-                    <div className={classes.headerLeft}>
-                        <Input prefix={<SearchIcon />} placeholder="Search" width={"320px"} className={classes.searchInput} />
-                    </div>
-                    <div className={classes.headerRight}>
-                        <Badge count={5} size="small" style={{ background: "#17B26A" }}>
-                            <BellIcon className={classes.notificationIcon} />
-                        </Badge>
-                        <ProfileMenu />
-                    </div>
-                </div>
+                <Typography.Text >ENVIRONMENTAL FLOW CALCULATOR CENTRAL ASIA</Typography.Text>
             </AntdHeader>
         )
 

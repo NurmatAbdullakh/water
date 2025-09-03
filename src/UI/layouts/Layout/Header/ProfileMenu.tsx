@@ -3,10 +3,9 @@ import { Avatar, Divider, Flex, Popover } from "antd";
 import classNames from "classnames";
 import { createUseStyles } from "react-jss";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../../../api/auth/AuthProvider";
 import { Color } from "../../../../assets/colors";
 import { BellIcon, BookOpenIcon, BriefCaseIcon, CheckVerifiedIcon, HelpCircleIcon, LogoutIcon, UserIcon } from "../../../../assets/icons";
-import { Paths } from "../../../../router/paths";
-import { useAuth } from "../../../../api/auth/AuthProvider";
 
 const useStyles = createUseStyles({
     myPopover: {
@@ -43,22 +42,22 @@ const links = [
     {
         icon: <UserIcon />,
         label: "Personal info",
-        path: Paths.PERSONAL_INFO
+        path: "Paths.PERSONAL_INFO"
     },
     {
         icon: <CheckVerifiedIcon />,
         label: "My subscription",
-        path: Paths.SUBSCRIPTIONS
+        path: "Paths.SUBSCRIPTIONS"
     },
     {
         icon: <BellIcon />,
         label: "Notification settings",
-        path: Paths.NOTIFICATIONS
+        path: "Paths.NOTIFICATIONS"
     },
     {
         icon: <HelpCircleIcon />,
         label: "My Tickets",
-        path: Paths.SUPPORT_TICKETS
+        path: "Paths.SUPPORT_TICKETS"
     },
     {
         icon: <BookOpenIcon />,

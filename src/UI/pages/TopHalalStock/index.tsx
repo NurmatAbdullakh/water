@@ -1,7 +1,6 @@
 import { Flex, Modal } from 'antd'
 import { Link } from 'react-router-dom'
 import { EditIcon, SearchIcon, TrashtIcon } from '../../../assets/icons'
-import { PathGenerators } from '../../../router/paths'
 import Table from '../../components/CustomAntdComponents/Table'
 import { TableActionButton } from '../../components/TableValues/TableActionButton/TableActionButton'
 import { TopHalalStockTableTitle } from './TopHalalStockTableTitle'
@@ -28,10 +27,10 @@ export default function TopHalalStock() {
     const columns = [
         {
             key: 'actions',
-            render: (record: any) => (
+            render: () => (
                 <Flex gap={2} align='center'>
                     <TableActionButton icon={<TrashtIcon />} title='Delete' />
-                    <Link to={PathGenerators.USERS_DETAILS_ID(record.key)}>
+                    <Link to={"PathGenerators.USERS_DETAILS_ID(record.key)"}>
                         <TableActionButton icon={<EditIcon />} title='Edit' />
                     </Link>
                 </Flex>

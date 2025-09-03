@@ -1,11 +1,10 @@
 import { Form, Typography } from "antd";
-import { Paths } from "../../../router/paths";
-import { Input } from "../../components/CustomAntdComponents/Input";
 import { createUseStyles } from "react-jss";
-import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
 import { Link } from "react-router-dom";
-import { Button } from "../../components/CustomAntdComponents/Button";
 import { ArrowLeftIcon } from "../../../assets/icons";
+import { Button } from "../../components/CustomAntdComponents/Button";
+import { Input } from "../../components/CustomAntdComponents/Input";
+import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
 
 const useStyles = createUseStyles({
     container: {
@@ -65,7 +64,7 @@ export const ForgotPassword = () => {
                 </Form.Item>
             </Form>
 
-            <Link to={Paths.LOGIN} className={classes.backLink}>
+            <Link to={"Paths.LOGIN"} className={classes.backLink}>
                 <ArrowLeftIcon />
                 <Typography.Text>Back to log in</Typography.Text>
             </Link>

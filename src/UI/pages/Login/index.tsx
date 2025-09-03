@@ -3,7 +3,6 @@ import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../api/auth/AuthProvider";
 import { Color } from "../../../assets/colors";
-import { Paths } from "../../../router/paths";
 import { Button } from "../../components/CustomAntdComponents/Button";
 import { Input } from "../../components/CustomAntdComponents/Input";
 import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
@@ -60,7 +59,7 @@ function Login() {
                     <Form.Item>
                         <Row justify="space-between" align="middle">
                             <Checkbox>Remember for 30 days</Checkbox>
-                            <Link to={Paths.FORGOT_PASSWORD} >
+                            <Link to={"Paths.FORGOT_PASSWORD"} >
                                 <Typography.Text className="linkText">Forgot password?</Typography.Text>
                             </Link>
                         </Row>
@@ -74,7 +73,7 @@ function Login() {
                 </Form>
                 <div className={styles.authFooter}>
                     <Typography.Text className={classes.secondaryText}>Don't have an account? </Typography.Text>
-                    <Link to={Paths.SIGN_UP}>
+                    <Link to={"Paths.SIGN_UP"}>
                         <Typography.Text className="linkText">Sign up</Typography.Text>
                     </Link>
                 </div>

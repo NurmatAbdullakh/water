@@ -2,7 +2,6 @@ import { Typography } from "antd";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon } from "../../../assets/icons";
-import { Paths } from "../../../router/paths";
 import { Button } from "../../components/CustomAntdComponents/Button";
 import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
 
@@ -69,7 +68,7 @@ export const CheckYourEmail = () => {
                 </Typography.Text>
             </div>
 
-            <Link to={Paths.LOGIN} className={classes.backLink}>
+            <Link to={"Paths.LOGIN"} className={classes.backLink}>
                 <ArrowLeftIcon />
                 <Typography.Text >Back to log in</Typography.Text>
             </Link>

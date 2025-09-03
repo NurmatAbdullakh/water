@@ -1,6 +1,5 @@
 import { Form, Typography } from "antd";
 import { Link } from "react-router-dom";
-import { Paths } from "../../../router/paths";
 import { Button } from "../../components/CustomAntdComponents/Button";
 import { Input } from "../../components/CustomAntdComponents/Input";
 import styles from './index.module.css';
@@ -63,7 +62,7 @@ export const SignUp = () => {
                 </Form>
                 <div className={styles.authFooter}>
                     <Typography.Text>Already have an account? </Typography.Text>
-                    <Link to={Paths.LOGIN}>
+                    <Link to={"Paths.LOGIN"}>
                         <Typography.Text className="linkText">Log in</Typography.Text>
                     </Link>
                 </div>

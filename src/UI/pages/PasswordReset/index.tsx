@@ -1,10 +1,9 @@
 import { Typography } from "antd";
-import { Link } from "react-router-dom";
-import { Paths } from "../../../router/paths";
 import { createUseStyles } from "react-jss";
-import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
-import { Button } from "../../components/CustomAntdComponents/Button";
+import { Link } from "react-router-dom";
 import { ArrowLeftIcon } from "../../../assets/icons";
+import { Button } from "../../components/CustomAntdComponents/Button";
+import { AuthHeader } from "../../layouts/AuthLayout/AuthHeader/AuthHeader";
 
 const useStyles = createUseStyles({
     container: {
@@ -48,14 +47,14 @@ export const PasswordReset = () => {
             />
 
             <div className={classes.actions}>
-                <Link to={Paths.LOGIN}>
+                <Link to={"Paths.LOGIN"}>
                     <Button type="primary" size="large" block>
                         Continue
                     </Button>
                 </Link>
             </div>
 
-            <Link to={Paths.LOGIN} className={classes.backLink}>
+            <Link to={"Paths.LOGIN"} className={classes.backLink}>
                 <ArrowLeftIcon />
                 <Typography.Text>Back to log in</Typography.Text>
             </Link>
