@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "../UI/layouts/Layout";
 import { Paths } from "./paths";
+import { PageTitle } from "../UI/components/PageTitle/PageTitle";
 
 // Create a reusable loading component
 const LoadingSpinner = () => (
@@ -19,12 +20,12 @@ const LoadingSpinner = () => (
 
 
 // Dashboard and other components
-const Dashboard = () => <> it is empty</>;
-const Map = () => <>it is empty</>
-const Calculator = () => <>it is empty</>
-const Data = () => <>it is empty</>
-const About = () => <>it is empty</>
-const NotFound = () => <>it is empty</>
+const Dashboard = () => <PageTitle>Dashboard Page Page</PageTitle>;
+const Map = () => <PageTitle>Map Page</PageTitle>
+const Calculator = () => <PageTitle>Calculator Page</PageTitle>
+const Data = () => <PageTitle>Data Page</PageTitle>
+const About = () => <PageTitle>About Page</PageTitle>
+const NotFound = () => <PageTitle>NotFound Page</PageTitle>
 
 export const router = createBrowserRouter([
     {
